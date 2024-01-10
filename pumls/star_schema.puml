@@ -1,0 +1,55 @@
+@startuml
+
+class "Fact Transactions" {
+  + Transaction Hash: String
+  + Block Hash: String
+  + Transaction Value: String
+  + Transaction Gas: String
+}
+
+class "Fact Tokens" {
+  + Token Contract Address: String
+  + Token Symbol: String
+  + Token Name: String
+  + Token Total Supply: String
+}
+
+class "Fact Token Transfers" {
+  + Transfer From: String
+  + Transfer To: String
+  + Transfer Value: String
+  + Transfer Transaction Hash: String
+}
+
+class "Dimension Timestamp" {
+  + Timestamp Dimension ID: String
+  + Timestamp: String
+  + Year: String
+  + Month: String
+  + Day: String
+  + Hour: String
+  + Minute: String
+  + Second: String
+  + Timezone: String
+}
+
+class "Dimension Blocks" {
+  + Block Number: String
+  + Block Timestamp: String
+  + Block Size: String
+  + Block Gas Limit: String
+}
+
+class "Dimension Addresses" {
+  + Address Type: String
+  + Address Balance: String
+  + Address Nonce: String
+}
+
+"Fact Transactions" -- "Fact Token Transfers" : "Transfer Transaction Hash"
+"Fact Tokens" -- "Fact Token Transfers" : "Token Contract Address"
+"Dimension Timestamp" -- "Fact Transactions" : "Timestamp Dimension ID"
+"Dimension Blocks" -- "Fact Transactions" : "Block Number"
+"Dimension Addresses" -- "Fact Transactions" : "Address Type"
+
+@enduml
