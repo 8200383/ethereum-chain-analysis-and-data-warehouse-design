@@ -3,7 +3,7 @@ A project to design a fact and dimension star schema for optimizing queries on a
 The designed schema allows for efficient querying of data such as transaction dates, gas fees, and transaction volume information.
 The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL Server Integration Services (SSIS).
 
-## Asks!?
+## 1. Asks!?
 - [ ] What is the total transaction volume on the eth chain over a specific time period?
 - [ ] Transactions with the highest gas fee over the last 24 hours!
 - [ ] Can you identify transactions with unusually high gas fees?
@@ -11,7 +11,7 @@ The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL 
 - [ ] The biggest transactions over the last 24 hours?
 - [ ] Transactions with the highest gas fee over the last 24 hours?
 
-## Fact and Dimensional tables
+## 2. Fact and Dimensional Tables
 The fact and dimension star schema for the Ethereum Chain Analysis and Data Warehouse Design consists of the following dimensions and facts:
 
 | **Facts**           | **Description**                                                                                        | **Fields**                                        |
@@ -25,3 +25,6 @@ The fact and dimension star schema for the Ethereum Chain Analysis and Data Ware
 | **Dimension Timestamp** | To store timestamps for various Ethereum-related events. | Timestamp Dimension ID, Timestamp, Year, Month, Day, Hour, Minute, Second, Timezone |
 | **Dimension Blocks** | To store information about Ethereum blocks, such as block number, block timestamp, block size, and block gas limit. | Block Number, Block Timestamp, Block Size, Block Gas Limit |
 | **Dimension Addresses** | To store information about Ethereum addresses, such as address type, address balance, and address nonce. | Address Type, Address Balance, Address Nonce |
+
+### 2.1. Fact and Dimensional as PlantUML
+
