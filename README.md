@@ -5,7 +5,6 @@ The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL 
 
 ## 1. Asks!?
 - [ ] What is the total transaction volume on the eth chain over a specific time period?
-- [ ] Transactions with the highest gas fee over the last 24 hours!
 - [ ] Can you identify transactions with unusually high gas fees?
 - [ ] What are the most popularly exchanged digital tokens, represented by ERC-721 and ERC-20 smart contracts?
 - [ ] The biggest transactions over the last 24 hours?
