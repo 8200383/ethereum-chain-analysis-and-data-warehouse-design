@@ -31,7 +31,6 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **Column** | **Type**| **Designation** |
 |----------|-------------| -------- |
 | **hash** | hex_string | |
-| **nonce** | bigint | | 
 | **block_hash** | hex_string | | 
 | **block_number** | bigint | | 
 | **transaction_index** | bigint | |
@@ -39,7 +38,6 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **to_address** | address | | 
 | **gas** | numeric | |
 | **gas_price** | bigint | |
-| **input** | hex_string | |
 | **block_timestamp** | bigint| |
 | **max_fee_per_gas** | bigint | | 
 | **max_priority_fee_per_gas** | bigint | |
