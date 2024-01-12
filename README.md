@@ -58,6 +58,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ### 4.2.1. Token Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | -------- |
+| **token_id**      | int | |
 | **address**      | address | |
 | **symbol**       | string  | |
 | **name**         | string  | |
@@ -82,3 +83,8 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **hour_12h/24h** | int | |
 | **minute** | int | | 
 | **second** | int | |
+## 4.3. Slowly Changing Dimensions
+| **Column**       | **Type**    | **Designation** |
+| --------------   | ----------- | -------- |
+| **token_id**      | int | |
+| **circulating_supply**      | bigint | |
