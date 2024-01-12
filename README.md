@@ -108,8 +108,15 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **token_id** | int | |
 | **circulating_supply** | bigint | |
 # 4. Data Source
+- [ ] Write queries for BigQuery
 # 5. Data Staging Area
+- [ ] Create DSA Schema
+- [ ] Implement SSIS
 # 6. Data Warehouse
+- [ ] Create DW Schema
+
 # 7. ETL
+- [ ] Explain extracting process
+## 7.1 Ingestion Overview
 ![ETL](https://github.com/aimproxy/ethereum-chain-analysis-and-data-warehouse-design/blob/main/diagrams/ETL.png?raw=true)
 # 8. Power BI
