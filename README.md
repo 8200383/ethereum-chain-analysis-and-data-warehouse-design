@@ -10,7 +10,7 @@ The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL 
 - [ ] Transactions with the highest gas fee over the last 24 hours?
 
 ## 2. Fact and Dimensional Tables
-The fact and dimension star schema for the Ethereum Chain Analysis and Data Warehouse Design consists of the following dimensions and facts:
+The star schema for the Ethereum Chain Analysis and Data Warehouse Design consists of the following dimensions and facts:
 
 | **Facts**           | **Description**                                                                                                                                |
 |--------------------------|--------------------------------------------------------------------------------------------------------|
@@ -19,37 +19,51 @@ The fact and dimension star schema for the Ethereum Chain Analysis and Data Ware
 
 | **Dimensions**           | **Description**                                                                                        |
 |--------------------------|--------------------------------------------------------------------------------------------------------|
-| **Fact Tokens**       | To store information about ERC-20 tokens, such as token contract address, token symbol, token name, and token total supply. |
+| **Dimension Tokens**       | To store information about ERC-20 tokens, such as token contract address, token symbol, token name, and token total supply. |
 | **Dimension Timestamp** | To store timestamps for various Ethereum-related events. |
-| **Dimension Addresses** | To store information about Ethereum addresses, such as address type, address balance, and address nonce.|
+| **Dimension Addresses** | To store information about Ethereum addresses, such as address type, address balance. |
 
-### 2.1. Fact and Dimensional as PlantUML
+### 2.1. Star Schema as PlantUML
 
 ## 3. Schemas
-### 3.1. Fact Transaction Schema
-| **Column** | **Type**|
-|----------|-------------|
-| **hash** | hex_string |
-| **nonce** | bigint |
-| **block_hash** | hex_string |
-| **block_number** | bigint |
-| **transaction_index** | bigint |
-| **from_address** | address |
-| **to_address** | address |
-| **gas** | numeric |
-| **gas_price** | bigint |
-| **input** | hex_string |
-| **block_timestamp** | bigint|
-| **max_fee_per_gas** | bigint |
-| **max_priority_fee_per_gas** | bigint |
-| **transaction_type** | bigint |
-### 3.2. Token Transfer Schema
-| **Column**       | **Type**    |
-| --------------   | ----------- |
-| **token_address**| address |
-| **from_address** | address |
-| **to_address**   | address |
-| **value**        | numeric |
-| **transaction_hash** | hex_string |
-| **log_index**    | bigint   |
-| **block_number** | bigint   |
+### 3.1. Fact Schemas
+#### 3.1.1. Transaction Fact Schema
+| **Column** | **Type**| **Designation** |
+|----------|-------------| -------- |
+| **hash** | hex_string | |
+| **nonce** | bigint | | 
+| **block_hash** | hex_string | | 
+| **block_number** | bigint | | 
+| **transaction_index** | bigint | |
+| **from_address** | address | |
+| **to_address** | address | | 
+| **gas** | numeric | |
+| **gas_price** | bigint | |
+| **input** | hex_string | |
+| **block_timestamp** | bigint| |
+| **max_fee_per_gas** | bigint | | 
+| **max_priority_fee_per_gas** | bigint | |
+| **transaction_type** | bigint | | 
+#### 3.1.2. Token Transfer Fact Schema
+| **Column**       | **Type**    | **Designation** |
+| --------------   | ----------- | --------- | 
+| **token_address** | address | | 
+| **from_address** | address | | 
+| **to_address**   | address | | 
+| **value**        | numeric | | 
+| **transaction_hash** | hex_string | |
+| **log_index**    | bigint   | |
+| **block_number** | bigint   | | 
+### 3.2. Dimension Schemas
+#### 3.2.1. Timestamp Dim Schema
+| **Column**       | **Type**    | **Designation** |
+| --------------   | ----------- | ---------------- |
+|timestamp_pk (Primary Key) | int | |
+|timestamp_unix (Datetime) | bigint | |
+| year | int | | 
+| quarter| int | |   
+| month| int | |
+|day | int | |
+| hour_12h/24h | int | |
+| minute| int | | 
+| second| int | | 
