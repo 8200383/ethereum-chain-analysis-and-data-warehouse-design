@@ -24,6 +24,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **Tokens**       | To store information about ERC-20 tokens, such as token contract address, token symbol, token name, and token total supply. |
 | **Timestamp** | To store timestamps for various Ethereum-related events. |
 | **Wallets** | To store information about Ethereum addresses. |
+| **Token Snapshot** |  Slowly Changing Dimension to store circulating supply |
 
 ## 3.1. Star Schema as PlantUML
 
