@@ -8,8 +8,9 @@ The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL 
 - [ ] What are the most popularly exchanged digital tokens, represented by ERC-721 and ERC-20 smart contracts?
 - [ ] The biggest transactions over the last 24 hours?
 - [ ] Transactions with the highest gas fee over the last 24 hours?
+# 2. Data Source
 
-# 2. Fact and Dimensional Tables
+# 3. Fact and Dimensional Tables
 The star schema for the Ethereum Chain Analysis and Data Warehouse Design consists of the following dimensions and facts:
 
 | **Facts**           | **Description**                                                                                                                                |
@@ -23,11 +24,11 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **Dimension Timestamp** | To store timestamps for various Ethereum-related events. |
 | **Dimension Addresses** | To store information about Ethereum addresses, such as address type, address balance. |
 
-## 2.1. Star Schema as PlantUML
+## 3.1. Star Schema as PlantUML
 
-# 3. Schemas
-## 3.1. Fact Schemas
-### 3.1.1. Transaction Fact Schema
+# 4. Schemas
+## 4.1. Fact Schemas
+### 4.1.1. Transaction Fact Schema
 | **Column** | **Type**| **Designation** |
 |----------|-------------| -------- |
 | **hash** | hex_string | |
@@ -42,7 +43,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **max_fee_per_gas** | bigint | | 
 | **max_priority_fee_per_gas** | bigint | |
 | **transaction_type** | bigint | | 
-### 3.1.2. Token Transfer Fact Schema
+### 4.1.2. Token Transfer Fact Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | --------- | 
 | **token_address** | address | | 
@@ -53,17 +54,23 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **log_index**    | bigint   | |
 | **block_number** | bigint   | |
 
-## 3.2. Dimension Schemas
-### 3.2.1. Token Dim Schema
-| **Column**       | **Type**    |
-| --------------   | ----------- |
-| **address**      | address |
-| **symbol**       | string  |
-| **name**         | string  |
-| **decimals**     | bigint  |
-| **is_erc20**     | boolean |
-| **is_erc721**    | boolean |
-### 3.2.2. Timestamp Dim Schema
+## 4.2. Dimension Schemas
+### 4.2.1. Token Dim Schema
+| **Column**       | **Type**    | **Designation** |
+| --------------   | ----------- | |
+| **address**      | address | |
+| **symbol**       | string  | |
+| **name**         | string  | |
+| **decimals**     | bigint  | |
+| **is_erc20**     | boolean | |
+| **is_erc721**    | boolean | |
+### 4.2.2. Address Dim Schema
+| **Column**     | **Type**    | **Designation** |
+| -------------- | ----------- | --------------- |
+| **address_id** | int | |
+| **wallet** | hex_string | |
+| **balance** | bigint | |
+### 4.2.3. Timestamp Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | ---------------- |
 | **timestamp_pk (Primary Key)** | int | |
@@ -74,4 +81,4 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **day** | int | |
 | **hour_12h/24h** | int | |
 | **minute** | int | | 
-| second| int | |
+| **second** | int | |
