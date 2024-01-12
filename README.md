@@ -66,7 +66,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **block_id** | int | |
 | **hash** | hex_string | |
 | **timestamp** | bigint | | 
-| **difficulty*** | numeric | |
+| **difficulty** | numeric | |
 | **total_difficulty** | numeric | |
 | **transaction_count** | bigint | |
 | **gas_limit** | bigint | |
