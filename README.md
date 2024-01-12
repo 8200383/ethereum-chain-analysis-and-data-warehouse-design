@@ -12,16 +12,16 @@ The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL 
 ## 2. Fact and Dimensional Tables
 The fact and dimension star schema for the Ethereum Chain Analysis and Data Warehouse Design consists of the following dimensions and facts:
 
-| **Facts**           | **Description**                                                                                        | **Fields**                                        |
-|--------------------------|--------------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| **Fact Transactions** | To store information about individual Ethereum transactions, such as transaction hash, block hash, transaction value, and transaction gas. | Transaction Hash, Block Hash, Transaction Value, Transaction Gas |
-| **Fact Token Transfers** | To store information about ERC-20 token transfers, such as transfer from, transfer to, transfer value, and transfer transaction hash. | Transfer From, Transfer To, Transfer Value, Transfer Transaction Hash |
+| **Facts**           | **Description**                                                                                                                                |
+|--------------------------|--------------------------------------------------------------------------------------------------------|
+| **Fact Transactions** | To store information about individual Ethereum transactions, such as transaction hash, block hash, transaction value, and transaction gas. |
+| **Fact Token Transfers** | To store information about ERC-20 token transfers, such as transfer from, transfer to, transfer value, and transfer transaction hash. |
 
-| **Dimensions**           | **Description**                                                                                        | **Fields**                                        |
-|--------------------------|--------------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| **Fact Tokens**       | To store information about ERC-20 tokens, such as token contract address, token symbol, token name, and token total supply. | Token Contract Address, Token Symbol, Token Name, Token Total Supply |
-| **Dimension Timestamp** | To store timestamps for various Ethereum-related events. | Timestamp Dimension ID, Timestamp, Year, Month, Day, Hour, Minute, Second, Timezone |
-| **Dimension Addresses** | To store information about Ethereum addresses, such as address type, address balance, and address nonce. | Address Type, Address Balance, Address Nonce |
+| **Dimensions**           | **Description**                                                                                        |
+|--------------------------|--------------------------------------------------------------------------------------------------------|
+| **Fact Tokens**       | To store information about ERC-20 tokens, such as token contract address, token symbol, token name, and token total supply. |
+| **Dimension Timestamp** | To store timestamps for various Ethereum-related events. |
+| **Dimension Addresses** | To store information about Ethereum addresses, such as address type, address balance, and address nonce.|
 
 ### 2.1. Fact and Dimensional as PlantUML
 
