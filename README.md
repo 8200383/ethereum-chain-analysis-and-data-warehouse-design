@@ -18,7 +18,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **Transactions** | To store information about individual Ethereum transactions, such as transaction hash, block hash, transaction value, and transaction gas. |
 | **Token Transfers** | To store information about ERC-20 token transfers, such as transfer from, transfer to, transfer value, and transfer transaction hash. |
 | **Wallet Snapshot** | To store wallet balance |
-| **Block Snapshot** | To store state of a block |
+| **Block Snapshot** | To store state of a block, such as gas_price, max_fee_per_gas, max_priority_fee_per_gas per block_timestamp |
 
 | **Dimensions**           | **Description**                                                                                        |
 |--------------------------|--------------------------------------------------------------------------------------------------------|
