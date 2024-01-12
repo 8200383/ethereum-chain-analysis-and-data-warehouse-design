@@ -60,6 +60,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | --------------   | ----------- | --------- | 
 | **wallet_id** | int | |
 | **balance** | bigint | |
+| **timestamp_id** | int | |
 ### 4.1.4. Block Snapshot Fact Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | --------- | 
