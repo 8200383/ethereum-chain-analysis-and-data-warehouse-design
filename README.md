@@ -5,7 +5,6 @@ The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL 
 
 ## 1. Asks!?
 - [ ] What is the total transaction volume on the eth chain over a specific time period?
-- [ ] Can you identify transactions with unusually high gas fees?
 - [ ] What are the most popularly exchanged digital tokens, represented by ERC-721 and ERC-20 smart contracts?
 - [ ] The biggest transactions over the last 24 hours?
 - [ ] Transactions with the highest gas fee over the last 24 hours?
@@ -26,3 +25,31 @@ The fact and dimension star schema for the Ethereum Chain Analysis and Data Ware
 
 ### 2.1. Fact and Dimensional as PlantUML
 
+## 3. Schemas
+### 3.1. Fact Transaction Schema
+| **Column** | **Type**|
+|----------|-------------|
+| **hash** | hex_string |
+| **nonce** | bigint |
+| **block_hash** | hex_string |
+| **block_number** | bigint |
+| **transaction_index** | bigint |
+| **from_address** | address |
+| **to_address** | address |
+| **gas** | numeric |
+| **gas_price** | bigint |
+| **input** | hex_string |
+| **block_timestamp** | bigint|
+| **max_fee_per_gas** | bigint |
+| **max_priority_fee_per_gas** | bigint |
+| **transaction_type** | bigint |
+### 3.2. Token Transfer Schema
+| **Column**       | **Type**    |
+| --------------   | ----------- |
+| **token_address**| address |
+| **from_address** | address |
+| **to_address**   | address |
+| **value**        | numeric |
+| **transaction_hash** | hex_string |
+| **log_index**    | bigint   |
+| **block_number** | bigint   |
