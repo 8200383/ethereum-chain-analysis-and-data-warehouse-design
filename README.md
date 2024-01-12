@@ -57,7 +57,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ## 4.2. Dimension Schemas
 ### 4.2.1. Token Dim Schema
 | **Column**       | **Type**    | **Designation** |
-| --------------   | ----------- | |
+| --------------   | ----------- | -------- |
 | **address**      | address | |
 | **symbol**       | string  | |
 | **name**         | string  | |
