@@ -8,7 +8,6 @@ The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL 
 - [ ] What are the most popularly exchanged digital tokens, represented by ERC-721 and ERC-20 smart contracts?
 - [ ] The biggest transactions over the last 24 hours?
 - [ ] Transactions with the highest gas fee over the last 24 hours?
-# 2. Data Source
 
 # 3. Fact and Dimensional Tables
 The star schema for the Ethereum Chain Analysis and Data Warehouse Design consists of the following dimensions and facts:
@@ -109,6 +108,8 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | --------------   | ----------- | -------- |
 | **token_id** | int | |
 | **circulating_supply** | bigint | |
-
-# 5. SQL
-# 6. ETL
+# 4. Data Source
+# 5. Data Staging Area
+# 6. Data Warehouse
+# 7. ETL
+![ETL]()
