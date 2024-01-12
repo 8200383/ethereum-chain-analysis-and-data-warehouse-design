@@ -60,7 +60,18 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | --------------   | ----------- | --------- | 
 | **wallet_id** | int | |
 | **balance** | bigint | |
-
+### 4.1.4. Block Snapshot Fact Schema
+| **Column**       | **Type**    | **Designation** |
+| --------------   | ----------- | --------- | 
+| **block_id** | int | |
+| **hash** | hex_string | |
+| **timestamp** | bigint | | 
+| **difficulty*** | numeric | |
+| **total_difficulty** | numeric | |
+| **transaction_count** | bigint | |
+| **gas_limit** | bigint | |
+| **gas_used** | bigint | |
+| **base_fee_per_gas** | bigint | |
 ## 4.2. Dimension Schemas
 ### 4.2.1. Token Dim Schema
 | **Column**       | **Type**    | **Designation** |
