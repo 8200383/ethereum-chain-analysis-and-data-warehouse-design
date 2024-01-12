@@ -109,3 +109,6 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | --------------   | ----------- | -------- |
 | **token_id** | int | |
 | **circulating_supply** | bigint | |
+
+# 5. SQL
+# 6. ETL
