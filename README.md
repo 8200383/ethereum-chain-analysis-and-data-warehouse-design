@@ -22,7 +22,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 |--------------------------|--------------------------------------------------------------------------------------------------------|
 | **Dimension Tokens**       | To store information about ERC-20 tokens, such as token contract address, token symbol, token name, and token total supply. |
 | **Dimension Timestamp** | To store timestamps for various Ethereum-related events. |
-| **Dimension Addresses** | To store information about Ethereum addresses, such as address type, address balance. |
+| **Dimension Wallets** | To store information about Ethereum addresses, such as address type, address balance. |
 
 ## 3.1. Star Schema as PlantUML
 
@@ -64,10 +64,10 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **decimals**     | bigint  | |
 | **is_erc20**     | boolean | |
 | **is_erc721**    | boolean | |
-### 4.2.2. Address Dim Schema
+### 4.2.2. Wallets Dim Schema
 | **Column**     | **Type**    | **Designation** |
 | -------------- | ----------- | --------------- |
-| **address_id** | int | |
+| **wallet_id** | int | |
 | **wallet** | hex_string | |
 | **balance** | bigint | |
 ### 4.2.3. Timestamp Dim Schema
