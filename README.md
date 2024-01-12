@@ -112,3 +112,4 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 # 6. Data Warehouse
 # 7. ETL
 ![ETL](https://github.com/aimproxy/ethereum-chain-analysis-and-data-warehouse-design/blob/main/diagrams/ETL.png?raw=true)
+# 8. Power BI
