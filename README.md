@@ -31,6 +31,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ### 4.1.1. Transaction Fact Schema
 | **Column** | **Type**| **Designation** |
 |----------|-------------| -------- |
+| **transaction_id** | int | | 
 | **hash** | hex_string | |
 | **block_hash** | hex_string | | 
 | **block_number** | bigint | | 
@@ -46,6 +47,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ### 4.1.2. Token Transfer Fact Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | --------- | 
+| **token_transfer_id** | int | | 
 | **token_address** | address | | 
 | **from_address** | address | | 
 | **to_address**   | address | | 
@@ -53,6 +55,11 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **transaction_hash** | hex_string | |
 | **log_index**    | bigint   | |
 | **block_number** | bigint   | |
+### 4.1.3. Wallet Snapshot Fact Schema
+| **Column**       | **Type**    | **Designation** |
+| --------------   | ----------- | --------- | 
+| **wallet_id** | int | |
+| **balance** | bigint | |
 
 ## 4.2. Dimension Schemas
 ### 4.2.1. Token Dim Schema
@@ -70,12 +77,11 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | -------------- | ----------- | --------------- |
 | **wallet_id** | int | |
 | **wallet** | hex_string | |
-| **balance** | bigint | |
 ### 4.2.3. Timestamp Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | ---------------- |
-| **timestamp_pk (Primary Key)** | int | |
-| **timestamp_unix (Datetime)** | bigint | |
+| **timestamp_id** | int | |
+| **timestamp_unix** | bigint | |
 | **year** | int | | 
 | **quarter** | int | |   
 | **month** | int | |
@@ -84,7 +90,8 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **minute** | int | | 
 | **second** | int | |
 ## 4.3. Slowly Changing Dimensions
+### 4.3.1. Token Snapshot
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | -------- |
-| **token_id**      | int | |
-| **circulating_supply**      | bigint | |
+| **token_id** | int | |
+| **circulating_supply** | bigint | |
