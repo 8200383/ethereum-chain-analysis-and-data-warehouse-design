@@ -53,15 +53,24 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **log_index**    | bigint   | |
 | **block_number** | bigint   | | 
 ### 3.2. Dimension Schemas
-#### 3.2.1. Timestamp Dim Schema
+#### 3.2.1. Token Dim Schema
+| **Column**       | **Type**    |
+| --------------   | ----------- |
+| **address**      | address |
+| **symbol**       | string  |
+| **name**         | string  |
+| **decimals**     | bigint  |
+| **is_erc20**     | boolean |
+| **is_erc721**    | boolean |
+#### 3.2.2. Timestamp Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | ---------------- |
-|timestamp_pk (Primary Key) | int | |
-|timestamp_unix (Datetime) | bigint | |
-| year | int | | 
-| quarter| int | |   
-| month| int | |
-|day | int | |
-| hour_12h/24h | int | |
-| minute| int | | 
-| second| int | | 
+| **timestamp_pk (Primary Key)** | int | |
+| **timestamp_unix (Datetime)** | bigint | |
+| **year** | int | | 
+| **quarter** | int | |   
+| **month** | int | |
+| **day** | int | |
+| **hour_12h/24h** | int | |
+| **minute** | int | | 
+| second| int | |
