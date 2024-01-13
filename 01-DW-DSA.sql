@@ -1,0 +1,2 @@
+CREATE DATABASE DataStagingArea;
+CREATE DATABASE DataWarehouse;
