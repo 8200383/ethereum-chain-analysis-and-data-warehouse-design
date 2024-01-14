@@ -77,9 +77,7 @@ create table FactBalance
         constraint FactBalance_SurrogateKey
             primary key,
     Address      varbinary not null,
-    BalanceETBH  bigint    not null,
-    BalanceUSD   bigint    not null,
-    BalanceEUR   bigint    not null,
+    BalanceETH  bigint    not null,
     TimestampKey int       not null
         constraint FactBalance_DimTimestamp_SurrogateKey_Foreign_Key
             references DimTimestamp
@@ -98,8 +96,6 @@ create table FactTransaction
         constraint FactTransaction_DimToken_SurrogateKey_Foreign_Key
             references DimToken,
     ValueETH        bigint    not null,
-    ValueUSD        bigint    not null,
-    ValueEUR        bigint    not null,
     GasUsed         bigint    not null,
     GasPrice        bigint    not null,
     GasPaid         bigint    not null,
