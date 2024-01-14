@@ -1,13 +1,22 @@
 # Ethereum Chain Analysis And Data Warehouse Design
 A project to design a fact and dimension star schema for optimizing queries on a Ethereum Chain database using MSSQL (Microsoft SQL Server), a relational database management system.
-The designed schema allows for efficient querying of data such as transaction dates, gas fees, and transaction volume information.
+
+A data warehouse provides a consistent view of ethereum data over time. The designed schema allows for efficient querying of data such as transaction dates, gas fees, and transaction volume information.
+
 The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL Server Integration Services (SSIS).
 
-# 1. Asks!?
+# 0. Abstract
+Ethereum is a major blockchain-based platform for smart contracts – Turing complete programs that are executed in a decentralized network and usually manipulate digital units of value. 
+
+A peer-to-peer network of mutually distrusting nodes maintains a common view of the global state and executes code upon request. The stated is stored in a blockchain secured by a proof-of-state consensus mechanism that work by selecting validators in proportion to their quantity of holdings.
+
+# 1. Introduction
 - [ ] What is the total transaction volume on the eth chain over a specific time period?
 - [ ] What are the most popularly exchanged digital tokens, represented by ERC-721 and ERC-20 smart contracts?
 - [ ] The biggest transactions over the last 24 hours?
 - [ ] Transactions with the highest gas fee over the last 24 hours?
+
+# 2. Something
 
 # 3. Fact and Dimensional Tables
 The star schema for the Ethereum Chain Analysis and Data Warehouse Design consists of the following dimensions and facts:
@@ -123,3 +132,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ## 7.1 Ingestion Overview
 ![ETL](https://github.com/aimproxy/ethereum-chain-analysis-and-data-warehouse-design/blob/main/diagrams/ETL.png?raw=true)
 # 8. Power BI
+
+# 9. References
+- [ ] Design And Representation Of The Time Dimension In Enterprise Data Warehouses [spec](https://www.scitepress.org/papers/2004/26426/26426.pdf)
+- [ ] Ethereum: State of Knowledge and Research Perspectives [spec](https://link.springer.com/chapter/10.1007/978-3-319-75650-9_14)
