@@ -51,12 +51,23 @@ create table DimToken
     Symbol       varchar(4)  not null,
     Name         varchar(50) not null,
     Decimals     bigint      not null,
-    TotalSupply  int         not null,
     ERC20        bit         not null,
     ERC721       bit         not null,
     SurrogateKey int         not null
         constraint DimToken_SurrogateKey_Foreign_Key
             primary key
+)
+go
+
+create table DimTokenSnapshot
+(
+    SurrogateKey int not null
+        constraint TokenSnapshot_SurrogateKey
+            primary key,
+    TokenKey int not null
+        constraint DimTokenSnapshot_DimToken_SurrogateKey_Foreign_Key
+            references DimToken,
+    TotalSupply bigint not null
 )
 go
 
