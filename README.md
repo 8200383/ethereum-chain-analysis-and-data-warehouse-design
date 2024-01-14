@@ -1,7 +1,7 @@
 # Ethereum Chain Analysis And Data Warehouse Design
 A project to design a fact and dimension star schema for optimizing queries on a Ethereum Chain database using MSSQL (Microsoft SQL Server), a relational database management system.
 
-A data warehouse provides a consistent view of ethereum data over time. The designed schema allows for efficient querying of data such as transaction dates, gas fees, and transaction volume information.
+A data warehouse provides a consistent view of Ethereum data over time. The designed schema allows for efficient querying of data such as transaction dates, gas fees, and transaction volume information.
 
 The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL Server Integration Services (SSIS).
 
