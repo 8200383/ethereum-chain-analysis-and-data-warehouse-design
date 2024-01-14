@@ -7,23 +7,22 @@ go
 use DataWarehouse
 go
 
-create table DimTimestamp
+CREATE TABLE DimTimestamp
 (
-    SurrogateKey  int        not null
-        constraint DimTimestamp_SurrogateKey
-            primary key,
-    UnixTimestamp bigint     not null,
-    HH            int        not null,
-    MM            int        not null,
-    SS            int        not null,
-    AM_PM         int        not null,
-    Day           int        not null,
-    Week          int        not null,
-    WeekName      varchar(9) not null,
-    Month         int        not null,
-    MonthName     varchar(9) not null,
-    Quarter       int        not null,
-    Year          int        not null
+    SurrogateKey  INT        NOT NULL
+        CONSTRAINT DimTimestamp_SurrogateKey PRIMARY KEY,
+    UnixTimestamp BIGINT     NOT NULL,
+    HH            INT        NOT NULL CHECK (HH >= 0 AND HH <= 23),
+    MM            INT        NOT NULL CHECK (MM >= 0 AND MM <= 59),
+    SS            INT        NOT NULL CHECK (SS >= 0 AND SS <= 59),
+    AM_PM         INT        NOT NULL CHECK (AM_PM IN (0, 1)),
+    Day           INT        NOT NULL CHECK (Day >= 1 AND Day <= 31),
+    Week          INT        NOT NULL CHECK (Week >= 1 AND Week <= 53),
+    WeekName      VARCHAR(9) NOT NULL,
+    Month         INT        NOT NULL CHECK (Month >= 1 AND Month <= 12),
+    MonthName     VARCHAR(9) NOT NULL,
+    Quarter       INT        NOT NULL CHECK (Quarter >= 1 AND Quarter <= 4),
+    Year          INT        NOT NULL
 )
 go
 
@@ -61,13 +60,13 @@ go
 
 create table DimTokenSnapshot
 (
-    SurrogateKey int not null
+    SurrogateKey int    not null
         constraint TokenSnapshot_SurrogateKey
             primary key,
-    TokenKey int not null
+    TokenKey     int    not null
         constraint DimTokenSnapshot_DimToken_SurrogateKey_Foreign_Key
             references DimToken,
-    TotalSupply bigint not null
+    TotalSupply  bigint not null
 )
 go
 
@@ -77,7 +76,7 @@ create table FactBalance
         constraint FactBalance_SurrogateKey
             primary key,
     Address      varbinary not null,
-    BalanceETH  bigint    not null,
+    BalanceETH   bigint    not null,
     TimestampKey int       not null
         constraint FactBalance_DimTimestamp_SurrogateKey_Foreign_Key
             references DimTimestamp
