@@ -6,9 +6,11 @@ A data warehouse provides a consistent view of ethereum data over time. The desi
 The ETL process for the Ethereum Chain Analysis is designed using Microsoft SQL Server Integration Services (SSIS).
 
 # 0. Abstract
-Ethereum is a major blockchain-based platform for smart contracts – Turing complete programs that are executed in a decentralized network and usually manipulate digital units of value. 
+The Ethereum blockchain generates a significant amount of data due to its intrinsic transparency and decentralized nature.  It is also referred to as on-chain data and is openly accessible to the world.
 
 A peer-to-peer network of mutually distrusting nodes maintains a common view of the global state and executes code upon request. The stated is stored in a blockchain secured by a proof-of-state consensus mechanism that work by selecting validators in proportion to their quantity of holdings.
+
+Moreover, the on-chain data is timestamped, integrated, and validated into an open ledger. This important blockchain feature enables us to assess the network’s health and usage. It serves as a massive data warehouse for complex prediction algorithms that can effectively detect systemic trends and forecast future behavior.
 
 # 1. Introduction
 - [ ] What is the total transaction volume on the eth chain over a specific time period?
@@ -131,8 +133,10 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 
 ## 7.1 Ingestion Overview
 ![ETL](https://github.com/aimproxy/ethereum-chain-analysis-and-data-warehouse-design/blob/main/diagrams/ETL.png?raw=true)
+
 # 8. Power BI
 
 # 9. References
-- [ ] Design And Representation Of The Time Dimension In Enterprise Data Warehouses [spec](https://www.scitepress.org/papers/2004/26426/26426.pdf)
-- [ ] Ethereum: State of Knowledge and Research Perspectives [spec](https://link.springer.com/chapter/10.1007/978-3-319-75650-9_14)
+- [x] Design And Representation Of The Time Dimension In Enterprise Data Warehouses [spec](https://www.scitepress.org/papers/2004/26426/26426.pdf)
+- [x] Ethereum: State of Knowledge and Research Perspectives [spec](https://link.springer.com/chapter/10.1007/978-3-319-75650-9_14)
+- [ ] An On-Chain Analysis-Based Approach to Predict Ethereum Prices [spec](https://researchsystem.canberra.edu.au/ws/portalfiles/portal/53556322/An_On_Chain_Analysis_Based_Approach_to_Predict_Ethereum_Prices.pdf)
