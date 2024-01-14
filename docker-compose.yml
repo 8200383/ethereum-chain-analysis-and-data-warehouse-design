@@ -7,6 +7,8 @@ services:
             MSSQL_PID: "Developer"
         ports:
             - "1433:1433"
+        volumes:
+            - mssql_storage:/var/opt/mssql
     mssqltools:
         image: mcr.microsoft.com/mssql-tools
         depends_on:
@@ -15,3 +17,5 @@ services:
             - ./01-DW-DSA.sql:/tmp/01-DW-DSA.sql
             - ./init.sh:/tmp/init.sh
         command: /bin/bash ./tmp/init.sh
+volumes:
+    mssql_storage:
