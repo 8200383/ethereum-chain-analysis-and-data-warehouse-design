@@ -16,6 +16,7 @@ services:
         volumes:
             - ./01-DW-DSA.sql:/tmp/01-DW-DSA.sql
             - ./init.sh:/tmp/init.sh
-        command: /bin/bash ./tmp/init.sh
+        command:
+            - /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P SqlServer2019! -d master -i /tmp/01-DW-DSA.sql
 volumes:
     mssql_storage:

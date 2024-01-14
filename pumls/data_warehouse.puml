@@ -1,0 +1,66 @@
+@startuml
+
+class DimBlock {
+   BlockHash: varbinary(1)
+   GasLimit: bigint
+   GasUsed: bigint
+   TimestampKey: int
+   TransactionCount: bigint
+   BaseFeePerGas: bigint
+   SurrogateKey: int
+}
+class DimTimestamp {
+   UnixTimestamp: bigint
+   HH: int
+   MM: int
+   SS: int
+   AM_PM: int
+   Day: int
+   Week: int
+   WeekName: varchar(9)
+   Month: int
+   MonthName: varchar(9)
+   Quarter: int
+   Year: int
+   SurrogateKey: int
+}
+class DimToken {
+   Address: varbinary(1)
+   Symbol: varchar(4)
+   Name: varchar(50)
+   Decimals: bigint
+   ERC20: bit
+   ERC721: bit
+   SurrogateKey: int
+}
+class DimTokenSnapshot {
+   TokenKey: int
+   TotalSupply: bigint
+   SurrogateKey: int
+}
+class FactBalance {
+   Address: varbinary(1)
+   BalanceETH: bigint
+   TimestampKey: int
+   SurrogateKey: int
+}
+class FactTransaction {
+   TransactionHash: binary(1)
+   BlockKey: int
+   FromAddress: varbinary(1)
+   ToAddress: varbinary(1)
+   TokenKey: int
+   ValueETH: bigint
+   GasUsed: bigint
+   GasPrice: bigint
+   GasPaid: bigint
+   TransactionType: int
+   SurrogateKey: int
+}
+
+DimBlock          -[#595959,plain]-^  DimTimestamp     : "TimestampKey:SurrogateKey"
+DimTokenSnapshot  -[#595959,plain]-^  DimToken         : "TokenKey:SurrogateKey"
+FactBalance       -[#595959,plain]-^  DimTimestamp     : "TimestampKey:SurrogateKey"
+FactTransaction   -[#595959,plain]-^  DimBlock         : "BlockKey:SurrogateKey"
+FactTransaction   -[#595959,plain]-^  DimToken         : "TokenKey:SurrogateKey"
+@enduml
