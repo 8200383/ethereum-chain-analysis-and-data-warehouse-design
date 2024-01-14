@@ -26,8 +26,9 @@ On-chain metrics such as active addresses, total addresses and transaction volum
 - [ ] Implement SSIS
 
 # 3. Data Warehouse
+- [ ] Put star schema here
 
-## 3.1 Fact and Dimensional Tables
+## 3.1 Facts and Dimensions
 The star schema for the Ethereum Chain Analysis and Data Warehouse Design consists of the following dimensions and facts:
 
 | **Facts**           | **Description**                                                                                                                                |
@@ -44,7 +45,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **Wallets** | To store information about Ethereum addresses. |
 | **Token Snapshot** |  Slowly Changing Dimension to store circulating supply |
 
-## 3.2. Star Schema
+## 3.2 Fact and Dimensions Specs
 
 ## 3.3. SQL Syntax
 ```sql
