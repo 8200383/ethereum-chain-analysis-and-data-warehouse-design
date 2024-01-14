@@ -18,7 +18,13 @@ Moreover, the on-chain data is timestamped, integrated, and validated into an op
 - [ ] The biggest transactions over the last 24 hours?
 - [ ] Transactions with the highest gas fee over the last 24 hours?
 
-# 2. Fact and Dimensional Tables
+# 2. Data Staging Area
+- [ ] Create DSA Schema
+- [ ] Implement SSIS
+
+# 3. Data Warehouse
+
+## 3.1 Fact and Dimensional Tables
 The star schema for the Ethereum Chain Analysis and Data Warehouse Design consists of the following dimensions and facts:
 
 | **Facts**           | **Description**                                                                                                                                |
@@ -35,9 +41,9 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | **Wallets** | To store information about Ethereum addresses. |
 | **Token Snapshot** |  Slowly Changing Dimension to store circulating supply |
 
-## 2.1. Star Schema
+## 3.2. Star Schema
 
-## 2.2 SQL Syntax
+## 3.3. SQL Syntax
 ```sql
 create database DataWarehouse
 go
@@ -225,17 +231,8 @@ go
 | **token_id** | int | |
 | **circulating_supply** | bigint | |
 
-# 4. Data Source
-- [ ] Write queries for BigQuery
-
-# 5. Data Staging Area
-- [ ] Create DSA Schema
-- [ ] Implement SSIS
-
-# 6. Data Warehouse
-- [ ] Create DW Schema
-
 # 7. ETL
+- [ ] Write queries for BigQuery
 - [ ] Explain extracting process
 - [ ] Draw BPMN
 
