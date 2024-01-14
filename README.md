@@ -13,6 +13,9 @@ A peer-to-peer network of mutually distrusting nodes maintains a common view of 
 Moreover, the on-chain data is timestamped, integrated, and validated into an open ledger. This important blockchain feature enables us to assess the network’s health and usage. It serves as a massive data warehouse for complex prediction algorithms that can effectively detect systemic trends and forecast future behavior.
 
 # 1. Introduction
+
+On-chain metrics such as active addresses, total addresses and transaction volume indicate the usage and adoption of the network.
+
 - [ ] What is the total transaction volume on the eth chain over a specific time period?
 - [ ] What are the most popularly exchanged digital tokens, represented by ERC-721 and ERC-20 smart contracts?
 - [ ] The biggest transactions over the last 24 hours?
