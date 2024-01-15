@@ -1,15 +1,18 @@
 @startuml
 
-class DimBlock {
+entity DimBlock {
+   **SurrogateKey: int** <<PK>>
+   --
+   TimestampKey: int <<FK>>
    BlockHash: varbinary(1)
    GasLimit: bigint
    GasUsed: bigint
-   TimestampKey: int
    TransactionCount: bigint
    BaseFeePerGas: bigint
-   SurrogateKey: int
 }
-class DimTimestamp {
+entity DimTimestamp {
+   **SurrogateKey: int** <<PK>>
+   --
    UnixTimestamp: bigint
    HH: int
    MM: int
@@ -22,45 +25,50 @@ class DimTimestamp {
    MonthName: varchar(9)
    Quarter: int
    Year: int
-   SurrogateKey: int
 }
-class DimToken {
+entity DimToken {
+   **SurrogateKey: int** <<PK>>
+   --
    Address: varbinary(1)
    Symbol: varchar(4)
    Name: varchar(50)
    Decimals: bigint
    ERC20: bit
    ERC721: bit
-   SurrogateKey: int
 }
-class DimTokenSnapshot {
-   TokenKey: int
+entity DimTokenSnapshot {
+   **SurrogateKey: int** <<PK>>
+   --
+   TokenKey: int <<FK>>
    TotalSupply: bigint
-   SurrogateKey: int
 }
-class FactBalance {
+entity FactBalance {
+   **SurrogateKey: int** <<PK>>
+   --
+   TimestampKey: int <<FK>>
    Address: varbinary(1)
    BalanceETH: bigint
-   TimestampKey: int
-   SurrogateKey: int
 }
-class FactTransaction {
+entity FactTransaction {
+   **SurrogateKey: int** <<PK>>
+   --
+   BlockKey: int <<FK>>
+   TokenKey: int <<FK>>
+   TimestampKey: int <<FK>>
    TransactionHash: binary(1)
-   BlockKey: int
    FromAddress: varbinary(1)
    ToAddress: varbinary(1)
-   TokenKey: int
    ValueETH: bigint
    GasUsed: bigint
    GasPrice: bigint
    GasPaid: bigint
    TransactionType: int
-   SurrogateKey: int
 }
 
-DimBlock          -[#595959,plain]-^  DimTimestamp     : "TimestampKey:SurrogateKey"
-DimTokenSnapshot  -[#595959,plain]-^  DimToken         : "TokenKey:SurrogateKey"
-FactBalance       -[#595959,plain]-^  DimTimestamp     : "TimestampKey:SurrogateKey"
-FactTransaction   -[#595959,plain]-^  DimBlock         : "BlockKey:SurrogateKey"
-FactTransaction   -[#595959,plain]-^  DimToken         : "TokenKey:SurrogateKey"
+DimBlock          }o..||  DimTimestamp     : "TimestampKey: SurrogateKey"
+DimTokenSnapshot  }o..||  DimToken         : "TokenKey: SurrogateKey"
+FactBalance       }o..||  DimTimestamp     : "TimestampKey: SurrogateKey"
+FactTransaction   }o..||  DimBlock         : "BlockKey: SurrogateKey"
+FactTransaction   }o..||  DimToken         : "TokenKey: SurrogateKey"
+FactTransaction   }o..||  DimTimestamp     : "TimestampKey: SurrogateKey"
 @enduml
