@@ -35,7 +35,7 @@ create table DimBlock
     GasLimit         bigint    not null,
     GasUsed          bigint    not null,
     TimestampKey     int       not null
-        constraint DimBlock_DimTimestamp_SurrogateKey_Foreign_Key
+        constraint DimBlock_DimTimestamp_SurrogateKey_ForeignKey
             references DimTimestamp,
     TransactionCount bigint    not null,
     BaseFeePerGas    bigint    not null
@@ -53,7 +53,7 @@ create table DimToken
     ERC20        bit         not null,
     ERC721       bit         not null,
     SurrogateKey int         not null
-        constraint DimToken_SurrogateKey_Foreign_Key
+        constraint DimToken_SurrogateKey
             primary key
 )
 go
@@ -64,7 +64,7 @@ create table DimTokenSnapshot
         constraint TokenSnapshot_SurrogateKey
             primary key,
     TokenKey     int    not null
-        constraint DimTokenSnapshot_DimToken_SurrogateKey_Foreign_Key
+        constraint DimTokenSnapshot_DimToken_SurrogateKey_ForeignKey
             references DimToken,
     TotalSupply  bigint not null
 )
@@ -78,7 +78,7 @@ create table FactBalance
     Address      varbinary not null,
     BalanceETH   bigint    not null,
     TimestampKey int       not null
-        constraint FactBalance_DimTimestamp_SurrogateKey_Foreign_Key
+        constraint FactBalance_DimTimestamp_SurrogateKey_ForeignKey
             references DimTimestamp
 )
 go
@@ -87,18 +87,21 @@ create table FactTransaction
 (
     TransactionHash binary    not null,
     BlockKey        int       not null
-        constraint FactTransaction_DimBlock_SurrogateKey_Foreign_Key
+        constraint FactTransaction_DimBlock_SurrogateKey_ForeignKey
             references DimBlock,
     FromAddress     varbinary not null,
     ToAddress       varbinary not null,
     TokenKey        int       not null
-        constraint FactTransaction_DimToken_SurrogateKey_Foreign_Key
+        constraint FactTransaction_DimToken_SurrogateKey_ForeignKey
             references DimToken,
     ValueETH        bigint    not null,
     GasUsed         bigint    not null,
     GasPrice        bigint    not null,
     GasPaid         bigint    not null,
     TransactionType int       not null,
+    TimestampKey    int       not null
+        constraint FactTransaction_DimTimestamp_SurrogateKey_ForeignKey
+            references DimTimestamp,
     SurrogateKey    int       not null
         constraint FactTransaction_SurrogateKey
             primary key
