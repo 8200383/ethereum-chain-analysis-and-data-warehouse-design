@@ -109,7 +109,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 | --------------   | ----------- | -------- |
 | **SurrogateKey** | int | - |
 | **TokenKey** | int | Dimension |
-| **TotalSupply** | bigint | |
+| **TotalSupply** | bigint | Metric |
 
 ## 3.5. SQL Syntax
 ```sql
