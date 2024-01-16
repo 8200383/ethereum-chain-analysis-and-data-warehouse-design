@@ -70,7 +70,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ### 3.3.1. Token Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | -------- |
-| **SurrogateKey**      | int |  |
+| **SurrogateKey**      | int | - |
 | **Address**      | varbinary(1) |  |
 | **Symbol**       | varchar(4)  | |
 | **Name** | varchar(50) | |
@@ -80,7 +80,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ### 3.3.2. Timestamp Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | ---------------- |
-| **SurrogateKey** | int |  |
+| **SurrogateKey** | int | - |
 | **UnixTimestamp** | bigint | |
 | **HH** | int | | 
 | **MM** | int | |   
@@ -96,19 +96,19 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ### 3.3.3. Block Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | ---------------- |
-| **SurrogateKey** | int |  |
-| **TimestampKey** | int |  |
-| **BlockHash** | varbinary(1) |  |
-| **GasLimit** | bigint | |
-| **GasUsed** | bigint | |
-| **TransactionCount** | bigint | |
-| **BaseFeePerGas** | bigint | |
+| **SurrogateKey** | int | - |
+| **TimestampKey** | int | Dimension |
+| **BlockHash** | varbinary(1) | Degenerated Dimension |
+| **GasLimit** | bigint | Metric |
+| **GasUsed** | bigint | Metric |
+| **TransactionCount** | bigint | Metric |
+| **BaseFeePerGas** | bigint | Metric |
 ### 3.4. Slowly Changing Dimensions
 #### 3.4.1. Token Snapshot
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | -------- |
-| **SurrogateKey** | int |  |
-| **TokenKey** | int |  |
+| **SurrogateKey** | int | - |
+| **TokenKey** | int | Dimension |
 | **TotalSupply** | bigint | |
 
 ## 3.5. SQL Syntax
