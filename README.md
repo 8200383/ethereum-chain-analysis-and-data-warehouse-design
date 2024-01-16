@@ -47,31 +47,31 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ### 3.2.1. Transaction Fact Schema
 | **Column** | **Type**| **Designation** |
 |----------|-------------| -------- |
-| **SurrogateKey** | int | | 
-| **BlockKey** | int | |
-| **TokenKey** | int | | 
-| **TimeStampKey** | bigint | | 
-| **TransactionHash** | binary(1) | |
-| **FromAddress** | varbinary(1) | |
-| **ToAddress** | varbinary(1) | | 
-| **ValueETH** | bigint | |
-| **GasUsed** | bigint | |
-| **GasPrice** | bigint| |
-| **GasPaid** | bigint | |
+| **SurrogateKey** | int | Dimension | 
+| **BlockKey** | int | Dimension |
+| **TokenKey** | int | Dimension | 
+| **TimeStampKey** | bigint | Dimension | 
+| **TransactionHash** | binary(1) | Degenerated Dimension|
+| **FromAddress** | varbinary(1) | Degenerated Dimension |
+| **ToAddress** | varbinary(1) | Degenerated Dimension | 
+| **ValueETH** | bigint | Metric |
+| **GasUsed** | bigint | Metric |
+| **GasPrice** | bigint| Metric |
+| **GasPaid** | bigint | Metric |
 | **TransactionType** | int | | 
 ### 3.2.2. Balance Fact Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | --------- | 
-| **SurrogateKey** | int | | 
-| **TimestampKey** | int | | 
-| **Address** | varbinary(1) | | 
-| **BalanceETH**   | bigint | |
+| **SurrogateKey** | int | Dimension | 
+| **TimestampKey** | int | Dimension | 
+| **Address** | varbinary(1) | Degenerated Dimension | 
+| **BalanceETH**   | bigint | Metric |
 ## 3.3. Dimension Specs
 ### 3.3.1. Token Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | -------- |
-| **SurrogateKey**      | int | |
-| **Address**      | varbinary(1) | |
+| **SurrogateKey**      | int |  |
+| **Address**      | varbinary(1) |  |
 | **Symbol**       | varchar(4)  | |
 | **Name** | varchar(50) | |
 | **Decimals** | bigint | |
@@ -80,7 +80,7 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ### 3.3.2. Timestamp Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | ---------------- |
-| **SurrogateKey** | int | |
+| **SurrogateKey** | int |  |
 | **UnixTimestamp** | bigint | |
 | **HH** | int | | 
 | **MM** | int | |   
@@ -96,9 +96,9 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 ### 3.3.3. Block Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | ---------------- |
-| **SurrogateKey** | int | |
-| **TimestampKey** | int | |
-| **BlockHash** | varbinary(1) | |
+| **SurrogateKey** | int |  |
+| **TimestampKey** | int |  |
+| **BlockHash** | varbinary(1) |  |
 | **GasLimit** | bigint | |
 | **GasUsed** | bigint | |
 | **TransactionCount** | bigint | |
@@ -107,8 +107,8 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 #### 3.4.1. Token Snapshot
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | -------- |
-| **SurrogateKey** | int | |
-| **TokenKey** | int | |
+| **SurrogateKey** | int |  |
+| **TokenKey** | int |  |
 | **TotalSupply** | bigint | |
 
 ## 3.5. SQL Syntax
