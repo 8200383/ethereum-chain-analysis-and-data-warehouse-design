@@ -33,97 +33,83 @@ The star schema for the Ethereum Chain Analysis and Data Warehouse Design consis
 
 | **Facts**           | **Description**                                                                                                                                |
 |--------------------------|--------------------------------------------------------------------------------------------------------|
-| **Transactions** | To store information about individual Ethereum transactions, such as transaction hash, block hash, transaction value, and transaction gas. |
-| **Token Transfers** | To store information about ERC-20 token transfers, such as transfer from, transfer to, transfer value, and transfer transaction hash. |
-| **Wallet Snapshot** | To store wallet balance |
-| **Block Snapshot** | To store state of a block, such as gas_price, max_fee_per_gas, max_priority_fee_per_gas per block_timestamp |
+| **Transaction** | To store information about individual Ethereum transactions, such as transaction hash, block hash, transaction value, and transaction gas. |
+| **Balance** | To store information about an address' balance at a given time. |
 
 | **Dimensions**           | **Description**                                                                                        |
 |--------------------------|--------------------------------------------------------------------------------------------------------|
-| **Tokens**       | To store information about ERC-20 tokens, such as token contract address, token symbol, token name, and token total supply. |
+| **Token**       | To store information about ERC-20 tokens, such as token contract address, token symbol, token name, and token total supply. |
 | **Timestamp** | To store timestamps for various Ethereum-related events. |
-| **Wallets** | To store information about Ethereum addresses. |
-| **Token Snapshot** |  Slowly Changing Dimension to store circulating supply |
+| **Token Snapshot** |  Slowly Changing Dimension to store circulating supply. |
+| **Block** | An Ethereum block that stores Ethereum transactions and defines the gas fee for the next block. |
 
 ## 3.2 Fact Specs
 ### 3.2.1. Transaction Fact Schema
 | **Column** | **Type**| **Designation** |
 |----------|-------------| -------- |
-| **transaction_id** | int | | 
-| **hash** | hex_string | |
-| **block_hash** | hex_string | | 
-| **block_number** | bigint | | 
-| **transaction_index** | bigint | |
-| **from_address** | address | |
-| **to_address** | address | | 
-| **gas** | numeric | |
-| **gas_price** | bigint | |
-| **block_timestamp** | bigint| |
-| **max_fee_per_gas** | bigint | | 
-| **max_priority_fee_per_gas** | bigint | |
-| **transaction_type** | bigint | | 
-### 3.2.2. Token Transfer Fact Schema
+| **SurrogateKey** | int | | 
+| **BlockKey** | int | |
+| **TokenKey** | int | | 
+| **TimeStampKey** | bigint | | 
+| **TransactionHash** | binary(1) | |
+| **FromAddress** | varbinary(1) | |
+| **ToAddress** | varbinary(1) | | 
+| **ValueETH** | bigint | |
+| **GasUsed** | bigint | |
+| **GasPrice** | bigint| |
+| **GasPaid** | bigint | |
+| **TransactionType** | int | | 
+### 3.2.2. Balance Fact Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | --------- | 
-| **token_transfer_id** | int | | 
-| **token_address** | address | | 
-| **from_address** | address | | 
-| **to_address**   | address | | 
-| **value**        | numeric | | 
-| **transaction_hash** | hex_string | |
-| **log_index**    | bigint   | |
-| **block_number** | bigint   | |
-### 3.2.3. Wallet Snapshot Fact Schema
-| **Column**       | **Type**    | **Designation** |
-| --------------   | ----------- | --------- | 
-| **wallet_id** | int | |
-| **balance** | bigint | |
-### 3.2.4. Block Snapshot Fact Schema
-| **Column**       | **Type**    | **Designation** |
-| --------------   | ----------- | --------- | 
-| **block_id** | int | |
-| **hash** | hex_string | |
-| **timestamp_id** | int | | 
-| **difficulty** | numeric | |
-| **total_difficulty** | numeric | |
-| **transaction_count** | bigint | |
-| **gas_limit** | bigint | |
-| **gas_used** | bigint | |
-| **base_fee_per_gas** | bigint | |
+| **SurrogateKey** | int | | 
+| **TimestampKey** | int | | 
+| **Address** | varbinary(1) | | 
+| **BalanceETH**   | bigint | |
 ## 3.3. Dimension Specs
 ### 3.3.1. Token Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | -------- |
-| **token_id**      | int | |
-| **address**      | address | |
-| **symbol**       | string  | |
-| **name**         | string  | |
-| **decimals**     | bigint  | |
-| **is_erc20**     | boolean | |
-| **is_erc721**    | boolean | |
-### 3.3.2. Wallets Dim Schema
-| **Column**     | **Type**    | **Designation** |
-| -------------- | ----------- | --------------- |
-| **wallet_id** | int | |
-| **wallet** | hex_string | |
-### 3.3.3. Timestamp Dim Schema
+| **SurrogateKey**      | int | |
+| **Address**      | varbinary(1) | |
+| **Symbol**       | varchar(4)  | |
+| **Name** | varchar(50) | |
+| **Decimals** | bigint | |
+| **ERC20** | bit | |
+| **ERC721** | bit | |
+### 3.3.2. Timestamp Dim Schema
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | ---------------- |
-| **timestamp_id** | int | |
-| **timestamp_unix** | bigint | |
-| **year** | int | | 
-| **quarter** | int | |   
-| **month** | int | |
-| **day** | int | |
-| **hour_12h/24h** | int | |
-| **minute** | int | | 
-| **second** | int | |
+| **SurrogateKey** | int | |
+| **UnixTimestamp** | bigint | |
+| **HH** | int | | 
+| **MM** | int | |   
+| **SS** | int | |
+| **AM_PM** | int | |
+| **Day** | int | |
+| **Week** | int | | 
+| **WeekName** | varchar(9) | |
+| **Month** | int | |
+| **MonthName** | varchar(9) | |
+| **Quarter** | int | |
+| **Year** | int | |
+### 3.3.3. Block Dim Schema
+| **Column**       | **Type**    | **Designation** |
+| --------------   | ----------- | ---------------- |
+| **SurrogateKey** | int | |
+| **TimestampKey** | int | |
+| **BlockHash** | varbinary(1) | |
+| **GasLimit** | bigint | |
+| **GasUsed** | bigint | |
+| **TransactionCount** | bigint | |
+| **BaseFeePerGas** | bigint | |
 ### 3.4. Slowly Changing Dimensions
 #### 3.4.1. Token Snapshot
 | **Column**       | **Type**    | **Designation** |
 | --------------   | ----------- | -------- |
-| **token_id** | int | |
-| **circulating_supply** | bigint | |
+| **SurrogateKey** | int | |
+| **TokenKey** | int | |
+| **TotalSupply** | bigint | |
 
 ## 3.5. SQL Syntax
 ```sql
