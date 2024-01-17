@@ -22,8 +22,9 @@ On-chain metrics such as active addresses, total addresses and transaction volum
 - [ ] Transactions with the highest gas fee over the last 24 hours?
 
 # 2. Data Staging Area
-- [ ] Create DSA Schema
 - [ ] Implement SSIS
+## 2.1. 
+![ETL](diagrams/Diagram.png)
 
 # 3. Data Warehouse
 ![Data Warehouse Diagram](diagrams/data_warehouse.svg)
@@ -223,18 +224,9 @@ go
 # 5. Diagrams
 ## 5.1. Data Warehouse Diagram
 
+# 6. Power BI
 
-# 7. ETL
-- [ ] Write queries for BigQuery
-- [ ] Explain extracting process
-- [ ] Draw BPMN
-
-## 7.1 Ingestion Overview
-![ETL](https://github.com/aimproxy/ethereum-chain-analysis-and-data-warehouse-design/blob/main/diagrams/ETL.png?raw=true)
-
-# 8. Power BI
-
-# 9. References
+# 7. References
 - [x] Design And Representation Of The Time Dimension In Enterprise Data Warehouses [spec](https://www.scitepress.org/papers/2004/26426/26426.pdf)
 - [x] Ethereum: State of Knowledge and Research Perspectives [spec](https://link.springer.com/chapter/10.1007/978-3-319-75650-9_14)
 - [ ] An On-Chain Analysis-Based Approach to Predict Ethereum Prices [spec](https://researchsystem.canberra.edu.au/ws/portalfiles/portal/53556322/An_On_Chain_Analysis_Based_Approach_to_Predict_Ethereum_Prices.pdf)
