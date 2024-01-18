@@ -24,7 +24,7 @@ On-chain metrics such as active addresses, total addresses and transaction volum
 # 2. Data Staging Area
 - [ ] Implement SSIS
 ## 2.1. 
-![ETL](diagrams/Diagram.png)
+![ETL](diagrams/Diagram2.png)
 
 # 3. Data Warehouse
 ![Data Warehouse Diagram](diagrams/data_warehouse.svg)
