@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{598446F2-48C9-4B77-8EFE-C8A6B689EB1C}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{EB3747F0-1750-461C-80A2-53F23C4D320B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,7 +35,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-R6I2EHN5\DIOGOPINTOSERVER;Initial Catalog=Ethereum_SA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{1E1B9B9D-6EF1-4E5E-8C0E-EBC87011F4C4}LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_SA;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=LAPTOP-R6I2EHN5\DIOGOPINTOSERVER;Initial Catalog=Ethereum_SA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{1E1B9B9D-6EF1-4E5E-8C0E-EBC87011F4C4}LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_SA;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -3190,13 +3190,21 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Data Flow Task\Derived Column 1"
-          TopLeft="475.833307334947,213.533331892954" />
+          Size="208,41.6"
+          Id="Package\Data Flow Task\Tokens OLE DB Destination"
+          TopLeft="718.333294085332,306.266664581431" />
         <NodeLayout
           Size="233.6,41.6"
           Id="Package\Data Flow Task\Transactions OLE DB Destination"
           TopLeft="436.666642808253,307.999997902711" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Data Flow Task\Derived Column 4"
+          TopLeft="1260.93326649335,213.533331892954" />
+        <NodeLayout
+          Size="247.2,41.6"
+          Id="Package\Data Flow Task\TokenTransfers OLE DB Destination"
+          TopLeft="960.366622455751,304.066664924953" />
         <NodeLayout
           Size="216.8,41.6"
           Id="Package\Data Flow Task\Balances OLE DB Destination"
@@ -3205,14 +3213,6 @@
           Size="204.8,41.6"
           Id="Package\Data Flow Task\Blocks OLE DB Destination"
           TopLeft="107.499994126459,309.399997848471" />
-        <NodeLayout
-          Size="180.8,41.6"
-          Id="Package\Data Flow Task\Tokens ODBC Source"
-          TopLeft="731.99998909235,106.999998405576" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Data Flow Task\Tokens OLE DB Destination"
-          TopLeft="718.333294085332,306.266664581431" />
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\Data Flow Task\Derived Column 2"
@@ -3226,17 +3226,51 @@
           Id="Package\Data Flow Task\Blocks ODBC Source"
           TopLeft="122.999998167157,110.999998345971" />
         <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Data Flow Task\Derived Column 1"
+          TopLeft="475.833307334947,213.533331892954" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Data Flow Task\Derived Column 3"
+          TopLeft="988.699954241019,210.599998535514" />
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\Data Flow Task\Token TransfersODBC Source"
+          TopLeft="956.533283431002,106.599999258717" />
+        <NodeLayout
           Size="206.4,41.6"
           Id="Package\Data Flow Task\Transactions ODBC Source"
           TopLeft="452.999993249774,106.999998405576" />
         <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Data Flow Task\Derived Column 4"
-          TopLeft="1260.93326649335,213.533331892954" />
-        <NodeLayout
           Size="189.6,41.6"
           Id="Package\Data Flow Task\Balances ODBC Source"
           TopLeft="1241.09997342378,109.333331738578" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Data Flow Task\Tokens ODBC Source"
+          TopLeft="731.99998909235,106.999998405576" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ODBC Source Output4]"
+          TopLeft="1068.01661883601,148.199999258717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.3999992767971"
+              Start="0,0"
+              End="0,54.8999992767971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.8999992767971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[ODBC Source Output3]"
           TopLeft="1338.81661995857,150.933331738578">
@@ -3317,6 +3351,40 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,57.4333334746626" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output4]"
+          TopLeft="1069.49995424102,252.199998535514">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.4666682147313,51.866666389439"
+              Start="0,0"
+              End="14.4666682147313,44.366666389439">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9333331947195" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9333331947195"
+                    Point2="0,25.9333331947195"
+                    Point3="4,25.9333331947195" />
+                  <mssgle:LineSegment
+                    End="10.4666682147313,25.9333331947195" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.4666682147313,25.9333331947195"
+                    Point2="14.4666682147313,25.9333331947195"
+                    Point3="14.4666682147313,29.9333331947195" />
+                  <mssgle:LineSegment
+                    End="14.4666682147313,44.366666389439" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3413,119 +3481,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="220,41.6"
-          Id="Package\Data Flow Task\Token TransfersODBC Source"
-          TopLeft="956.533283431002,106.599999258717" />
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Data Flow Task\Derived Column 3"
-          TopLeft="988.699954241019,210.599998535514" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[ODBC Source Output4]"
-          TopLeft="1068.01661883601,148.199999258717">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62.3999992767971"
-              Start="0,0"
-              End="0,54.8999992767971">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.8999992767971" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="247.2,41.6"
-          Id="Package\Data Flow Task\TokenTransfers OLE DB Destination"
-          TopLeft="960.366622455751,304.066664924953" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output4]"
-          TopLeft="1069.49995424102,252.199998535514">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="14.4666682147313,51.866666389439"
-              Start="0,0"
-              End="14.4666682147313,44.366666389439">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.9333331947195" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.9333331947195"
-                    Point2="0,25.9333331947195"
-                    Point3="4,25.9333331947195" />
-                  <mssgle:LineSegment
-                    End="10.4666682147313,25.9333331947195" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.4666682147313,25.9333331947195"
-                    Point2="14.4666682147313,25.9333331947195"
-                    Point3="14.4666682147313,29.9333331947195" />
-                  <mssgle:LineSegment
-                    End="14.4666682147313,44.366666389439" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Blocks ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Blocks OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Transactions ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Balances OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Tokens OLE DB Destination">
     <Properties>
@@ -3536,22 +3494,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Tokens ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Balances ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3569,14 +3511,6 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Token TransfersODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\TokenTransfers OLE DB Destination">
     <Properties>
       <Property>
@@ -3586,6 +3520,72 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Balances OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Blocks OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Blocks ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Token TransfersODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Transactions ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Balances ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Tokens ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
