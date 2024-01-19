@@ -78,9 +78,8 @@ FROM
   JOIN `bigquery-public-data.crypto_ethereum.transactions` trans ON trans.`hash` = tx.transaction_hash
   JOIN `bigquery-public-data.crypto_ethereum.blocks` blox ON blox.number = tx.block_number
   JOIN `bigquery-public-data.crypto_ethereum.contracts` contx ON contx.address = tx.token_address
-WHERE date(blox.timestamp) >= date_add(current_date(),interval -1 month)
-ORDER BY date(tx.block_timestamp) DESC 
-LIMIT 1
+WHERE date(blox.timestamp) BETWEEN date_sub(current_date, INTERVAL 1 MONTH) AND current_date()
+ORDER BY date(tx.block_timestamp) DESC
 ```
 
 ## 2.3. DSA Implementation
