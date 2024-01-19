@@ -21,6 +21,26 @@ On-chain metrics such as active addresses, total addresses and transaction volum
 - [ ] The biggest transactions over the last 24 hours?
 - [ ] Transactions with the highest gas fee over the last 24 hours?
 
+## 1.1 Wei | The smallest denomination of ether
+While the US dollar can only be divided into 100 equal parts i.e. into pennies, cryptocurrencies can be divided into much smaller atomic units. 
+
+Wei is the smallest denomination of ether, the currency used to facilitate transactional operations on the Ethereum blockchain network, where `10^18` or `1,000,000,000,000,000,000 wei` is equivalent to one ether. 
+
+Therefore, ether has multiple different levels of wei. Each subunit indicates the quantity of units but as mentioned above, have alternative names.
+
+The table below illustrates the various units of wei.
+
+| Unit        | Alternative Name | Wei Value             | Gwei Value            | Ether Value          |
+|-------------|------------------|-----------------------|-----------------------|----------------------|
+| Wei         | -                | 1                     | 10^-9 Gwei            | 10^-18 ETH           |
+| Kwei        | Babbage          | 1,000                 | 10^-3 Wei            | 10^-6 Gwei           | 10^-15 ETH          |
+| Mwei        | Lovelace         | 1,000,000             | 10^-6 Wei            | 10^-3 Gwei           | 10^-12 ETH          |
+| Gwei        | Shannon          | 1,000,000,000         | 10^-9 Wei            | 1 Gwei               | 10^-9 ETH           |
+| Microether  | Szabo            | 1,000,000,000,000     | 10^-12 Wei           | 10^-3 Gwei           | 10^-6 ETH           |
+| Milliether  | Finney           | 1,000,000,000,000,000 | 10^-15 Wei           | 10^-6 Gwei           | 10^-3 ETH           |
+| Ether       | -                | 1,000,000,000,000,000,000 | 10^-18 Wei      | 10^-9 Gwei       | 1 ETH              |
+
+
 # 2. Data Staging Area
 
 ## 2.1. DSA Overview
