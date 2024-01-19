@@ -27,14 +27,33 @@ On-chain metrics such as active addresses, total addresses and transaction volum
 ![ETL](diagrams/Diagram2.png)
 
 ## 2.2. BigQuery
-### 2.2.1 Get all Transactions with a Token Transfer (ERC-20/ERC-721) and calculate Tx Gas Fee?
+### 2.2.1 Retrieve Recent Data on Ethereum Blockchain
 ```
-select tx.token_address, t.name, tx.from_address, tx.to_address, tx.value, tx.block_timestamp, (trans.receipt_gas_used * trans.gas_price) / 1000000000000000000 as Fee, trans.gas as Gas_Limit, trans.gas_price, trans.receipt_gas_used as Gas_Used_by_Tx
-from 
+SELECT 
+tx.token_address AS TokenAddress, 
+tx.from_address AS FromAddress, 
+tx.to_address AS ToAddress, 
+tx.value AS TokenTransferValueETH, 
+tx.block_timestamp AS TokenTransferTimestamp, 
+trans.gas AS TransactionGas, 
+trans.gas_price AS TransactionGasPrice, 
+trans.receipt_gas_used AS TransactionGasUsed, 
+blox.gas_limit AS BlockGasLimit, 
+blox.base_fee_per_gas AS BlockBaseFeePerGas,
+t.symbol,t.name AS TokenName, 
+t.decimals AS TokenDecimals,
+t.total_supply AS TokenTotalSupply,
+contx.is_erc20 AS ContractIsERC20,
+contx.is_erc721 AS ContractIsERC721
+FROM 
   `bigquery-public-data.crypto_ethereum.token_transfers` tx 
-  JOIN `bigquery-public-data.crypto_ethereum.tokens` t on tx.token_address = t.address
-  JOIN `bigquery-public-data.crypto_ethereum.transactions` trans on trans.`hash` = tx.transaction_hash
-order by date(tx.block_timestamp) desc  
+  JOIN `bigquery-public-data.crypto_ethereum.tokens` t ON tx.token_address = t.address
+  JOIN `bigquery-public-data.crypto_ethereum.transactions` trans ON trans.`hash` = tx.transaction_hash
+  JOIN `bigquery-public-data.crypto_ethereum.blocks` blox ON blox.number = tx.block_number
+  JOIN `bigquery-public-data.crypto_ethereum.contracts` contx ON contx.address = tx.token_address
+WHERE date(blox.timestamp) >= date_add(current_date(),interval -1 month)
+ORDER BY date(tx.block_timestamp) DESC 
+LIMIT 1
 ```
 
 ## 2.3. DSA Implementation
