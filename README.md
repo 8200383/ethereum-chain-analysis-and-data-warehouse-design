@@ -21,7 +21,7 @@ On-chain metrics such as active addresses, total addresses and transaction volum
 - [ ] The biggest transactions over the last 24 hours?
 - [ ] Transactions with the highest gas fee over the last 24 hours?
 
-## 1.1 Wei | The smallest denomination of ether
+## 1.1. Wei | The smallest denomination of ether
 While the US dollar can only be divided into 100 equal parts i.e. into pennies, cryptocurrencies can be divided into much smaller atomic units. 
 
 Wei is the smallest denomination of ether, the currency used to facilitate transactional operations on the Ethereum blockchain network, where `10^18` or `1,000,000,000,000,000,000 wei` is equivalent to one ether. 
@@ -40,6 +40,13 @@ The table below illustrates the various units of wei.
 | Milliether  | Finney           | 1,000,000,000,000,000 | 10^-15 Wei           | 10^-6 Gwei           | 10^-3 ETH           |
 | Ether       | -                | 1,000,000,000,000,000,000 | 10^-18 Wei      | 10^-9 Gwei       | 1 ETH              |
 
+## 1.2. Compute the fee to execute a contract
+As gas is the pricing value deemed necessary to execute a contract or other form of transaction on the Ethereum network, gwei is needed to pay for the computational power.
+
+The standard transaction fee is 21,000 gwei on the Ethereum blockchain network. Typically, transaction fees will rise proportionately to the underlying complexity of the transaction.
+The methodology to calculate the transaction fee is by using the following formula: 
+
+`(receipt_gas_used * gas_price) / 10^-18`
 
 # 2. Data Staging Area
 
@@ -282,4 +289,5 @@ go
 # 7. References
 - [x] Design And Representation Of The Time Dimension In Enterprise Data Warehouses [spec](https://www.scitepress.org/papers/2004/26426/26426.pdf)
 - [x] Ethereum: State of Knowledge and Research Perspectives [spec](https://link.springer.com/chapter/10.1007/978-3-319-75650-9_14)
-- [ ] An On-Chain Analysis-Based Approach to Predict Ethereum Prices [spec](https://researchsystem.canberra.edu.au/ws/portalfiles/portal/53556322/An_On_Chain_Analysis_Based_Approach_to_Predict_Ethereum_Prices.pdf)
+- [x] An On-Chain Analysis-Based Approach to Predict Ethereum Prices [spec](https://researchsystem.canberra.edu.au/ws/portalfiles/portal/53556322/An_On_Chain_Analysis_Based_Approach_to_Predict_Ethereum_Prices.pdf)
+- [x] Gwei Calculator and Wei Converter [spec](https://www.alchemy.com/gwei-calculator)
