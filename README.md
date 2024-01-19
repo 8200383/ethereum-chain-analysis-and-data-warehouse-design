@@ -25,6 +25,7 @@ On-chain metrics such as active addresses, total addresses and transaction volum
 - [ ] Implement SSIS
 ## 2.1. 
 ![ETL](diagrams/Diagram2.png)
+![DSA](diagrams/DSA.png)
 
 # 3. Data Warehouse
 ![Data Warehouse Diagram](diagrams/data_warehouse.svg)
