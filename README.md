@@ -22,10 +22,22 @@ On-chain metrics such as active addresses, total addresses and transaction volum
 - [ ] Transactions with the highest gas fee over the last 24 hours?
 
 # 2. Data Staging Area
-- [ ] Implement SSIS
+
 ## 2.1. DSA Overview
 ![ETL](diagrams/Diagram2.png)
-## 2.2. DSA Implementation
+
+## 2.2. BigQuery
+### 2.2.1 Get all Transactions with a Token Transfer (ERC-20/ERC-721) and calculate Tx Gas Fee?
+```
+select tx.token_address, t.name, tx.from_address, tx.to_address, tx.value, tx.block_timestamp, (trans.receipt_gas_used * trans.gas_price) / 1000000000000000000 as Fee, trans.gas as Gas_Limit, trans.gas_price, trans.receipt_gas_used as Gas_Used_by_Tx
+from 
+  `bigquery-public-data.crypto_ethereum.token_transfers` tx 
+  JOIN `bigquery-public-data.crypto_ethereum.tokens` t on tx.token_address = t.address
+  JOIN `bigquery-public-data.crypto_ethereum.transactions` trans on trans.`hash` = tx.transaction_hash
+order by date(tx.block_timestamp) desc  
+```
+
+## 2.3. DSA Implementation
 ![DSA](diagrams/DSA.png)
 
 # 3. Data Warehouse
