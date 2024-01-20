@@ -56,7 +56,9 @@ The methodology to calculate the transaction fee is by using the following formu
 
 ## 2.2. SSIS Implementation
 
-## 2.3. BigQuery | Retrieve Recent Data on Ethereum Blockchain
+## 2.3. SQL Implementation
+
+## 2.4. Retrieve Recent Data on Ethereum Blockchain BigQuery
 ```
 SELECT 
 tx.token_address AS TokenAddress, 
