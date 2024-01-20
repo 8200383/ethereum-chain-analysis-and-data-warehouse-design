@@ -49,12 +49,14 @@ The methodology to calculate the transaction fee is by using the following formu
 `(receipt_gas_used * gas_price) / 10^-18`
 
 # 2. Data Staging Area
-
-## 2.1. DSA Overview
 ![ETL](diagrams/Diagram2.png)
 
-## 2.2. BigQuery
-### 2.2.1 Retrieve Recent Data on Ethereum Blockchain
+## 2.1. BPMN Implementation
+![ETL](diagrams/BPMN-BigQuery-DSA.png)
+
+## 2.2. SSIS Implementation
+
+## 2.3. BigQuery | Retrieve Recent Data on Ethereum Blockchain
 ```
 SELECT 
 tx.token_address AS TokenAddress, 
@@ -81,9 +83,6 @@ FROM
 WHERE date(blox.timestamp) BETWEEN date_sub(current_date, INTERVAL 1 MONTH) AND current_date()
 ORDER BY date(tx.block_timestamp) DESC
 ```
-
-## 2.3. DSA Implementation
-![DSA](diagrams/DSA.png)
 
 # 3. Data Warehouse
 ![Data Warehouse Diagram](diagrams/data_warehouse.svg)
