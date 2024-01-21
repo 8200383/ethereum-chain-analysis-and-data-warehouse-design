@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="164"
-  DTS:VersionGUID="{4C7007D4-3A85-403C-9EC8-AF5C45123207}">
+  DTS:VersionBuild="168"
+  DTS:VersionGUID="{57D11566-E45F-4331-B9AA-8C2099012814}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -676,46 +676,50 @@ LIMIT 50</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[ValueEUR]"
-                      dataType="i8"
+                      dataType="numeric"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[ValueEUR]"
                       name="ValueEUR"
+                      precision="38"
+                      scale="6"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[ValueETH]} * (#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close EUR]} / 1000000)</property>
+                          name="Expression">#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[ValueETH]} * (DT_DECIMAL,6)(#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close EUR]} / 1000000)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ValueETH * ([Adj Close EUR] / 1000000)</property>
+                          name="FriendlyExpression">ValueETH * (DT_DECIMAL,6)([Adj Close EUR] / 1000000)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[ValueUSD]"
-                      dataType="i8"
+                      dataType="numeric"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[ValueUSD]"
                       name="ValueUSD"
+                      precision="38"
+                      scale="6"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[ValueETH]} * (#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close EUR]} / 1000000)</property>
+                          name="Expression">#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[ValueETH]} * (DT_DECIMAL,6)(#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close EUR]} / 1000000)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ValueETH * ([Adj Close EUR] / 1000000)</property>
+                          name="FriendlyExpression">ValueETH * (DT_DECIMAL,6)([Adj Close EUR] / 1000000)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1691,16 +1695,24 @@ LIMIT 50</property>
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[ValueETH]"
                       dataType="numeric"
                       name="ValueETH"
-                      precision="38"
+                      precision="11"
                       scale="6" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[ValueEUR]"
-                      dataType="i8"
-                      name="ValueEUR" />
+                      dataType="numeric"
+                      name="ValueEUR"
+                      precision="8"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[ValueUSD]"
-                      dataType="i8"
-                      name="ValueUSD" />
+                      dataType="numeric"
+                      name="ValueUSD"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransferID]"
+                      dataType="i4"
+                      name="TransferID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3407,62 +3419,74 @@ LIMIT 50</property>
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="185.6,41.6"
-          Id="Package\Data Flow Task\Sort USD Data by Date"
-          TopLeft="553.703673450668,193.940739392101" />
-        <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\Data Flow Task\Sort BQ Data by Date"
-          TopLeft="877.499952055516,34.6666664255989" />
-        <NodeLayout
-          Size="196.8,41.6"
-          Id="Package\Data Flow Task\Format Converted Values"
-          TopLeft="636.342557824368,32.9907408018449" />
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Data Flow Task\EthEur Flat File Source"
-          TopLeft="73.9583292924286,109.849999236117" />
-        <NodeLayout
-          Size="280.8,41.6"
-          Id="Package\Data Flow Task\Convert Timestamp and ValueETH to String"
-          TopLeft="304.074057460199,28.8888886879992" />
+          Id="Package\Data Flow Task\Sort EUR Data by Date"
+          TopLeft="544.166636934712,107.466665919357" />
         <NodeLayout
           Size="209.6,41.6"
           Id="Package\Data Flow Task\Convert USD AdjClose to Int"
           TopLeft="313.333316213555,194.933332127995" />
         <NodeLayout
           Size="188,41.6"
-          Id="Package\Data Flow Task\EthUsd Flat File Source"
-          TopLeft="76.6369005746389,194.783331978835" />
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Data Flow Task\Sort EUR Data by Date"
-          TopLeft="544.166636934712,107.466665919357" />
+          Id="Package\Data Flow Task\Merge Join with EthUsd"
+          TopLeft="869.166619177495,199.13333333936" />
         <NodeLayout
           Size="244.8,41.6"
           Id="Package\Data Flow Task\Calculate ValueEUR and ValueUSD"
           TopLeft="834.999954377613,303.266664997273" />
         <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\EthEur Flat File Source"
+          TopLeft="73.9583292924286,109.849999236117" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Data Flow Task\EthUsd Flat File Source"
+          TopLeft="76.6369005746389,194.783331978835" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Data Flow Task\Insert into SA OLE DB"
+          TopLeft="1114.99993907909,302.599999041756" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Data Flow Task\Sort BQ Data by Date"
+          TopLeft="877.499952055516,34.6666664255989" />
+        <NodeLayout
+          Size="280.8,41.6"
+          Id="Package\Data Flow Task\Convert Timestamp and ValueETH to String"
+          TopLeft="304.074057460199,28.8888886879992" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\Sort USD Data by Date"
+          TopLeft="553.703673450668,193.940739392101" />
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\Data Flow Task\Format Converted Values"
+          TopLeft="636.342557824368,32.9907408018449" />
+        <NodeLayout
           Size="209.6,41.6"
           Id="Package\Data Flow Task\Convert EUR AdjClose to Int"
           TopLeft="307.499983198941,107.399999403358" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\Merge Join with EthEur"
+          TopLeft="873.333285616506,110.266666244798" />
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\Data Flow Task\BigQuery ODBC Source"
           TopLeft="74.875000796591,27.5833322593734" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[ODBC Source Output]"
-          TopLeft="265.275000796591,49.0361104736863">
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="964.649952397001,151.866666244798">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38.7990566636084,0"
+              EndConnector="0,47.2666670945617"
               Start="0,0"
-              End="31.2990566636084,0">
+              End="0,39.7666670945617">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="31.2990566636084,0" />
+                    End="0,39.7666670945617" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3516,6 +3540,72 @@ LIMIT 50</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="1079.79995437761,323.733332019514">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.1999847014747,0"
+              Start="0,0"
+              End="27.6999847014747,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.6999847014747,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="833.142557824368,54.6287036137219">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.3573942311484,0"
+              Start="0,0"
+              End="36.8573942311484,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.8573942311484,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output2]"
+          TopLeft="584.8740574602,51.7398147449221">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.4685003641684,0"
+              Start="0,0"
+              End="43.9685003641684,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.9685003641684,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output1]"
           TopLeft="522.933316213555,215.237035760048">
           <EdgeLayout.Curve>
@@ -3560,19 +3650,19 @@ LIMIT 50</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output2]"
-          TopLeft="584.8740574602,51.7398147449221">
+          Id="Package\Data Flow Task.Paths[Sort Output2]"
+          TopLeft="966.416618836011,76.2666664255989">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="51.4685003641684,0"
+              EndConnector="0,33.9999998191992"
               Start="0,0"
-              End="43.9685003641684,0">
+              End="0,26.4999998191992">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="43.9685003641684,0" />
+                    End="0,26.4999998191992" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3581,36 +3671,6 @@ LIMIT 50</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Data Flow Task\Merge Join with EthEur"
-          TopLeft="873.333285616506,110.266666244798" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="729.766636934712,129.666666082077">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="143.566648681794,0"
-              Start="0,0"
-              End="136.066648681794,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="136.066648681794,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="188,41.6"
-          Id="Package\Data Flow Task\Merge Join with EthUsd"
-          TopLeft="869.166619177495,199.13333333936" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Sort Output1]"
           TopLeft="739.303673450668,217.337036365731">
@@ -3634,19 +3694,19 @@ LIMIT 50</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="833.142557824368,54.6287036137219">
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="729.766636934712,129.666666082077">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="44.3573942311484,0"
+              EndConnector="143.566648681794,0"
               Start="0,0"
-              End="36.8573942311484,0">
+              End="136.066648681794,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="36.8573942311484,0" />
+                    End="136.066648681794,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3656,41 +3716,19 @@ LIMIT 50</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output2]"
-          TopLeft="966.416618836011,76.2666664255989">
+          Id="Package\Data Flow Task.Paths[ODBC Source Output]"
+          TopLeft="265.275000796591,49.0361104736863">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.9999998191992"
+              EndConnector="38.7990566636084,0"
               Start="0,0"
-              End="0,26.4999998191992">
+              End="31.2990566636084,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.4999998191992" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="964.649952397001,151.866666244798">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.2666670945617"
-              Start="0,0"
-              End="0,39.7666670945617">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.7666670945617" />
+                    End="31.2990566636084,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3721,43 +3759,9 @@ LIMIT 50</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\Data Flow Task\Insert into SA OLE DB"
-          TopLeft="1114.99993907909,302.599999041756" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
-          TopLeft="1079.79995437761,323.733332019514">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="35.1999847014747,0"
-              Start="0,0"
-              End="27.6999847014747,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="27.6999847014747,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\BigQuery ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Insert into SA OLE DB">
     <Properties>
@@ -3768,6 +3772,14 @@ LIMIT 50</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\BigQuery ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
