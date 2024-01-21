@@ -59,7 +59,7 @@ The methodology to calculate the transaction fee is by using the following formu
 ## 2.3. DSA SQL Implementation
 
 ## 2.4. BigQuery Implementation
-### 2.4.2. Query Base Token Information
+### 2.4.1. Base Token Information
 ```sql
 WITH Tokens AS (
   SELECT 
@@ -76,8 +76,29 @@ WITH Tokens AS (
 )
 ```
 
-### 2.4.3. Retrieve Recent Data on Ethereum Blockchain BigQuery
+### 2.4.2. Token Transfer ERC-20 ERC-721
+```sql
+WITH TokenTransfers AS (
+  SELECT 
+    tt.token_address AS TokenAddress, 
+    tt.from_address AS FromAddress, 
+    tt.to_address AS ToAddress, 
+    tt.value AS TokenTransferValueETH, 
+    tt.block_timestamp AS TokenTransferTimestamp, 
+    tt.transaction_hash AS TokenTransferHash,
+    tt.block_number AS TokenTransferBlock,
+    t.gas AS TransactionGas, 
+    t.gas_price AS TransactionGasPrice, 
+    t.receipt_gas_used AS TransactionGasUsed
+  FROM 
+    `bigquery-public-data.crypto_ethereum.token_transfers` tt
+    JOIN `bigquery-public-data.crypto_ethereum.transactions` t ON tt.transaction_hash = t.hash
+  WHERE date(tx.block_timestamp) BETWEEN date_sub(current_date, INTERVAL 1 MONTH) AND current_date()
+)
 ```
+
+### 2.4.3. Retrieve Recent Data on Ethereum Blockchain BigQuery
+```sql
 SELECT 
 tx.token_address AS TokenAddress, 
 tx.from_address AS FromAddress, 
