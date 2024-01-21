@@ -56,9 +56,27 @@ The methodology to calculate the transaction fee is by using the following formu
 
 ## 2.2. SSIS Implementation
 
-## 2.3. SQL Implementation
+## 2.3. DSA SQL Implementation
 
-## 2.4. Retrieve Recent Data on Ethereum Blockchain BigQuery
+## 2.4. BigQuery Implementation
+### 2.4.2. Query Base Token Information
+```sql
+WITH Tokens AS (
+  SELECT 
+    t.address AS TokenAddress, 
+    t.symbol AS TokenSymbol, 
+    t.name AS TokenName, 
+    t.decimals AS TokenDecimals,
+    t.total_supply AS TokenTotalSupply,
+    c.is_erc20 AS ContractIsERC20,
+    c.is_erc721 AS ContractIsERC721
+  FROM 
+    `bigquery-public-data.crypto_ethereum.tokens` t
+    JOIN `bigquery-public-data.crypto_ethereum.contracts` c ON c.address = t.address
+)
+```
+
+### 2.4.3. Retrieve Recent Data on Ethereum Blockchain BigQuery
 ```
 SELECT 
 tx.token_address AS TokenAddress, 
