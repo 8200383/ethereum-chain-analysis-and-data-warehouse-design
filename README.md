@@ -97,7 +97,7 @@ WITH TokenTransfers AS (
 )
 ```
 
-### 2.4.3. Retrieve Recent Data on Ethereum Blockchain BigQuery
+### 2.4.3. Retrieve recent data on Ethereum Blockchain
 ```sql
 SELECT 
 tx.token_address AS TokenAddress, 
