@@ -55,7 +55,7 @@ The methodology to calculate the transaction fee is by using the following formu
 ![ETL](diagrams/BPMN-BigQuery-DSA.png)
 
 ## 2.2. SSIS Implementation
-
+![DSA](diagrams/DSA.png)
 ## 2.3. DSA SQL Implementation
 
 ## 2.4. BigQuery Implementation
