@@ -57,6 +57,28 @@ The methodology to calculate the transaction fee is by using the following formu
 ## 2.2. SSIS Implementation
 ![DSA](diagrams/DSA.png)
 ## 2.3. DSA SQL Implementation
+```sql
+CREATE TABLE Transfers (
+    TokenAddress varchar(max),
+    FromAddress varchar(max),
+    ToAddress varchar(max),
+    TokenTransferTimestamp datetime2(6),
+    TransactionGas bigint,
+    TransactionGasPrice bigint,
+    TransactionGasUsed bigint,
+    BlockGasLimit bigint,
+    BlockBaseFeePerGas bigint,
+    TokenName varchar(max),
+    TokenSymbol varchar(max),
+    TokenTotalSupply varchar(max),
+    TokenDecimals varchar(max),
+    ContractIsERC20 bit,
+    ContractIsERC721 bit,
+    ValueETH numeric(38,6),
+    ValueEUR bigint,
+    ValueUSD bigint
+)
+```
 
 ## 2.4. BigQuery Implementation
 ### 2.4.1. Base Token Information
