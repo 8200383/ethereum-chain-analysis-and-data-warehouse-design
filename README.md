@@ -59,26 +59,29 @@ The methodology to calculate the transaction fee is by using the following formu
 ## 2.3. DSA SQL Implementation
 ![DSAEntity](diagrams/DSATable.svg)
 ```sql
-CREATE TABLE Transfers (
-TransferID  int IDENTITY(1,1) PRIMARY KEY,
-   TokenAddress varchar(max),
-   FromAddress varchar(max),
-   ToAddress varchar(max),
-   TokenTransferTimestamp datetime2(6),
-  TransactionGas bigint,
-   TransactionGasPrice bigint,
-   TransactionGasUsed bigint,
-   BlockGasLimit bigint,
-  BlockBaseFeePerGas bigint,
-   TokenName varchar(max),
-   TokenSymbol varchar(max),
-   TokenTotalSupply varchar(max),
-   TokenDecimals varchar(max),
-   ContractIsERC20 bit,
-   ContractIsERC721 bit,
-   ValueETH numeric(12,6),
-   ValueEUR numeric(8,2),
-   ValueUSD numeric(8,2)
+CREATE TABLE [dbo].[Transfers](
+	[TransferID] [int] IDENTITY(1,1) NOT NULL,
+	[TokenAddress] [varchar](max),
+	[FromAddress] [varchar](max),
+	[ToAddress] [varchar](max),
+	[TokenTransferTimestamp] [datetime2](6),
+	[TransactionGas] [bigint],
+	[TransactionGasPrice] [bigint],
+	[TransactionGasUsed] [bigint],
+	[BlockHash] [varchar](max),
+	[BlockGasLimit] [bigint],
+	[BlockBaseFeePerGas] [bigint],
+	[BlockGasUsed] [bigint],
+	[BlockTransactionCount] [bigint],
+	[TokenName] [varchar](max),
+	[TokenSymbol] [varchar](max),
+	[TokenTotalSupply] [varchar](max),
+	[TokenDecimals] [varchar](max),
+	[ContractIsERC20] [bit],
+	[ContractIsERC721] [bit],
+	[ValueETH] [numeric](12, 6),
+	[ValueEUR] [numeric](8, 2),
+	[ValueUSD] [numeric](8, 2) 
 )
 ```
 
@@ -132,8 +135,11 @@ tx.block_timestamp AS TokenTransferTimestamp,
 trans.gas AS TransactionGas, 
 trans.gas_price AS TransactionGasPrice, 
 trans.receipt_gas_used AS TransactionGasUsed, 
+blox.hash AS BlockHash,
 blox.gas_limit AS BlockGasLimit, 
 blox.base_fee_per_gas AS BlockBaseFeePerGas,
+blox.gas_used AS BlockGasUsed,
+blox.transaction_count AS BlockTransactionCount,
 t.symbol AS TokenSymbol,
 t.name AS TokenName, 
 t.decimals AS TokenDecimals,
@@ -148,6 +154,7 @@ FROM
   JOIN `bigquery-public-data.crypto_ethereum.contracts` contx ON contx.address = tx.token_address
 WHERE date(blox.timestamp) BETWEEN date_sub(current_date, INTERVAL 1 MONTH) AND current_date()
 ORDER BY date(tx.block_timestamp) DESC
+LIMIT 50
 ```
 
 # 3. Data Warehouse
