@@ -1,0 +1,751 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/22/2024 2:07:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-R6I2EHN5"
+  DTS:CreatorName="LAPTOP-R6I2EHN5\diogo"
+  DTS:DTSID="{C0FE99AF-36A5-45FA-B579-D87097D93372}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="2070"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{C830B481-40EF-4E87-AA6B-AE21AE2F2B92}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2F4480DE-EDE1-498E-8902-E39CF2D8F0AE}"
+      DTS:ObjectName="LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-R6I2EHN5\DIOGOPINTOSERVER;Initial Catalog=Ethereum_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{2F4480DE-EDE1-498E-8902-E39CF2D8F0AE}LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_SA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D193192C-521F-4A99-AC88-9CC1B24B9E89}"
+      DTS:ObjectName="LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_SA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-R6I2EHN5\DIOGOPINTOSERVER;Initial Catalog=Ethereum_SA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{D193192C-521F-4A99-AC88-9CC1B24B9E89}LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_SA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{18A5718C-9BF6-4749-8A76-3069ADB0FADA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Convert DT_TEXT to String"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Convert DT_TEXT to String"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input].Columns[TokenAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="TokenAddress"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenAddress]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input].Columns[TokenName]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="TokenName"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input].Columns[TokenSymbol]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="TokenSymbol"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenSymbol]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input].Columns[TokenDecimals]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="TokenDecimals"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenDecimals]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenAddressString]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="42"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenAddressString]"
+                      name="TokenAddressString"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenAddress]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenNameString]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenNameString]"
+                      name="TokenNameString"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenSymbolString]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenSymbolString]"
+                      name="TokenSymbolString"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenSymbol]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenDecimalsString]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenDecimalsString]"
+                      name="TokenDecimalsString"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenDecimals]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DimTokens OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimTokens OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimToken]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DimTokens OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContractIsERC20]"
+                      cachedDataType="bool"
+                      cachedName="ContractIsERC20"
+                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC20]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractIsERC20]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContractIsERC721]"
+                      cachedDataType="bool"
+                      cachedName="ContractIsERC721"
+                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC721]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractIsERC721]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenSymbolString]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="TokenSymbolString"
+                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Symbol]"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenSymbolString]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenNameString]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TokenNameString"
+                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenNameString]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenDecimalsString]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TokenDecimalsString"
+                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Decimals]"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenDecimalsString]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenAddressString]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="42"
+                      cachedName="TokenAddressString"
+                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenAddressString]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="42"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Symbol]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Symbol" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Decimals]"
+                      dataType="i8"
+                      name="Decimals" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC20]"
+                      dataType="bool"
+                      name="ERC20" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC721]"
+                      dataType="bool"
+                      name="ERC721" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                      dataType="i4"
+                      name="SurrogateKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Transfers OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Transfers OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Transfers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT TokenAddress, 
+TokenSymbol,
+TokenName,
+TokenDecimals,
+ContractIsERC20,
+ContractIsERC721
+FROM Transfers</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Transfers OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_SA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenAddress]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TokenAddress]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenAddress]"
+                      name="TokenAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenName]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TokenName]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenName]"
+                      name="TokenName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenSymbol]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TokenSymbol]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenSymbol]"
+                      name="TokenSymbol"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenDecimals]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TokenDecimals]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenDecimals]"
+                      name="TokenDecimals"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractIsERC20]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContractIsERC20]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractIsERC20]"
+                      name="ContractIsERC20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractIsERC721]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContractIsERC721]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractIsERC721]"
+                      name="ContractIsERC721"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TokenAddress]"
+                      codePage="1252"
+                      dataType="text"
+                      name="TokenAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TokenName]"
+                      codePage="1252"
+                      dataType="text"
+                      name="TokenName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TokenSymbol]"
+                      codePage="1252"
+                      dataType="text"
+                      name="TokenSymbol" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TokenDecimals]"
+                      codePage="1252"
+                      dataType="text"
+                      name="TokenDecimals" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContractIsERC20]"
+                      dataType="bool"
+                      name="ContractIsERC20" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContractIsERC721]"
+                      dataType="bool"
+                      name="ContractIsERC721" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TokenAddress]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TokenAddress]"
+                      name="TokenAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TokenName]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TokenName]"
+                      name="TokenName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TokenSymbol]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TokenSymbol]"
+                      name="TokenSymbol" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TokenDecimals]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TokenDecimals]"
+                      name="TokenDecimals" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContractIsERC20]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContractIsERC20]"
+                      name="ContractIsERC20" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContractIsERC721]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContractIsERC721]"
+                      name="ContractIsERC721" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="54.1666637071305,23.3999998372793" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\Data Flow Task\Transfers OLE DB Source"
+          TopLeft="70.8333294631707,65.8666662086381" />
+        <NodeLayout
+          Size="226.4,41.6"
+          Id="Package\Data Flow Task\DimTokens OLE DB Destination"
+          TopLeft="575.833301871188,64.9999995479981" />
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Data Flow Task\Convert DT_TEXT to String"
+          TopLeft="334.166648408606,66.733332869278" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="270.033329463171,87.099999538958">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.1333189454348,0"
+              Start="0,0"
+              End="56.6333189454348,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56.6333189454348,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="538.966648408606,86.666666208638">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.8666534625822,0"
+              Start="0,0"
+              End="29.3666534625822,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.3666534625822,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text=""
+          ParentId="Package\Data Flow Task"
+          FontInfo="{assembly:Null}"
+          Size="28.8,40"
+          Id="31b0907c-6721-4892-9355-2f425bedca6a"
+          TopLeft="487.499973364175,179.399998752475" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Transfers OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DimTokens OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
