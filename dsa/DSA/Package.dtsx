@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="168"
-  DTS:VersionGUID="{57D11566-E45F-4331-B9AA-8C2099012814}">
+  DTS:VersionBuild="174"
+  DTS:VersionGUID="{260FE751-72F9-4BBE-92C7-40D2AEA4DBAE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -248,8 +248,11 @@ tx.block_timestamp AS TokenTransferTimestamp,
 trans.gas AS TransactionGas, 
 trans.gas_price AS TransactionGasPrice, 
 trans.receipt_gas_used AS TransactionGasUsed, 
+blox.hash AS BlockHash,
 blox.gas_limit AS BlockGasLimit, 
 blox.base_fee_per_gas AS BlockBaseFeePerGas,
+blox.gas_used AS BlockGasUsed,
+blox.transaction_count AS BlockTransactionCount,
 t.symbol AS TokenSymbol,
 t.name AS TokenName, 
 t.decimals AS TokenDecimals,
@@ -432,6 +435,25 @@ LIMIT 50</property>
                       externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[TokenSymbol]"
                       lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TokenSymbol]"
                       name="TokenSymbol" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockHash]"
+                      codePage="1252"
+                      dataType="text"
+                      externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockHash]"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockHash]"
+                      name="BlockHash" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockGasUsed]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockGasUsed]"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockGasUsed]"
+                      name="BlockGasUsed" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockTransactionCount]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockTransactionCount]"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockTransactionCount]"
+                      name="BlockTransactionCount" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -508,6 +530,19 @@ LIMIT 50</property>
                       codePage="1252"
                       dataType="text"
                       name="TokenSymbol" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockHash]"
+                      codePage="1252"
+                      dataType="text"
+                      name="BlockHash" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockGasUsed]"
+                      dataType="i8"
+                      name="BlockGasUsed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockTransactionCount]"
+                      dataType="i8"
+                      name="BlockTransactionCount" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -620,6 +655,25 @@ LIMIT 50</property>
                       externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[TokenSymbol]"
                       lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[TokenSymbol]"
                       name="TokenSymbol" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[BlockHash]"
+                      codePage="1252"
+                      dataType="text"
+                      externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockHash]"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[BlockHash]"
+                      name="BlockHash" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[BlockGasUsed]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockGasUsed]"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[BlockGasUsed]"
+                      name="BlockGasUsed" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[BlockTransactionCount]"
+                      dataType="i8"
+                      externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockTransactionCount]"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[BlockTransactionCount]"
+                      name="BlockTransactionCount" />
                     <outputColumn
                       refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1620,6 +1674,25 @@ LIMIT 50</property>
                       cachedScale="6"
                       externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[ValueUSD]"
                       lineageId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[ValueUSD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].Columns[BlockHash]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="BlockHash"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[BlockHash]"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockHash]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].Columns[BlockGasUsed]"
+                      cachedDataType="i8"
+                      cachedName="BlockGasUsed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[BlockGasUsed]"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockGasUsed]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].Columns[BlockTransactionCount]"
+                      cachedDataType="i8"
+                      cachedName="BlockTransactionCount"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[BlockTransactionCount]"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockTransactionCount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1695,7 +1768,7 @@ LIMIT 50</property>
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[ValueETH]"
                       dataType="numeric"
                       name="ValueETH"
-                      precision="11"
+                      precision="12"
                       scale="6" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[ValueEUR]"
@@ -1709,6 +1782,19 @@ LIMIT 50</property>
                       name="ValueUSD"
                       precision="8"
                       scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[BlockHash]"
+                      codePage="1252"
+                      dataType="text"
+                      name="BlockHash" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[BlockGasUsed]"
+                      dataType="i8"
+                      name="BlockGasUsed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[BlockTransactionCount]"
+                      dataType="i8"
+                      name="BlockTransactionCount" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransferID]"
                       dataType="i4"
@@ -1870,6 +1956,22 @@ LIMIT 50</property>
                       cachedPrecision="38"
                       cachedScale="6"
                       lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[ValueETH]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[BlockHash]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="BlockHash"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockHash]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[BlockGasUsed]"
+                      cachedDataType="i8"
+                      cachedName="BlockGasUsed"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockGasUsed]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[BlockTransactionCount]"
+                      cachedDataType="i8"
+                      cachedName="BlockTransactionCount"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockTransactionCount]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2147,6 +2249,46 @@ LIMIT 50</property>
                           name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Right Input].Columns[Adj Close EUR]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockHash]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockHash]"
+                      name="BlockHash">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[BlockHash]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockGasUsed]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockGasUsed]"
+                      name="BlockGasUsed">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[BlockGasUsed]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockTransactionCount]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockTransactionCount]"
+                      name="BlockTransactionCount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[BlockTransactionCount]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2286,6 +2428,22 @@ LIMIT 50</property>
                       cachedDataType="i8"
                       cachedName="Adj Close EUR"
                       lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[Adj Close EUR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[BlockHash]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="BlockHash"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockHash]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[BlockGasUsed]"
+                      cachedDataType="i8"
+                      cachedName="BlockGasUsed"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockGasUsed]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[BlockTransactionCount]"
+                      cachedDataType="i8"
+                      cachedName="BlockTransactionCount"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockTransactionCount]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2558,6 +2716,46 @@ LIMIT 50</property>
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Right Input].Columns[Adj Close USD]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockHash]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockHash]"
+                      name="BlockHash">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[BlockHash]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockGasUsed]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockGasUsed]"
+                      name="BlockGasUsed">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[BlockGasUsed]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockTransactionCount]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockTransactionCount]"
+                      name="BlockTransactionCount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[BlockTransactionCount]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2871,6 +3069,55 @@ LIMIT 50</property>
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Inputs[Sort Input].Columns[BlockHash]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="BlockHash"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockHash]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Inputs[Sort Input].Columns[BlockGasUsed]"
+                      cachedDataType="i8"
+                      cachedName="BlockGasUsed"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockGasUsed]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Inputs[Sort Input].Columns[BlockTransactionCount]"
+                      cachedDataType="i8"
+                      cachedName="BlockTransactionCount"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockTransactionCount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3112,6 +3359,46 @@ LIMIT 50</property>
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TokenTotalSupply]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockHash]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockHash]"
+                      name="BlockHash">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockHash]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockGasUsed]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockGasUsed]"
+                      name="BlockGasUsed">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockGasUsed]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockTransactionCount]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockTransactionCount]"
+                      name="BlockTransactionCount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockTransactionCount]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3418,14 +3705,6 @@ LIMIT 50</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Data Flow Task\Sort EUR Data by Date"
-          TopLeft="544.166636934712,107.466665919357" />
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\Data Flow Task\Convert USD AdjClose to Int"
-          TopLeft="313.333316213555,194.933332127995" />
-        <NodeLayout
           Size="188,41.6"
           Id="Package\Data Flow Task\Merge Join with EthUsd"
           TopLeft="869.166619177495,199.13333333936" />
@@ -3433,10 +3712,6 @@ LIMIT 50</property>
           Size="244.8,41.6"
           Id="Package\Data Flow Task\Calculate ValueEUR and ValueUSD"
           TopLeft="834.999954377613,303.266664997273" />
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Data Flow Task\EthEur Flat File Source"
-          TopLeft="73.9583292924286,109.849999236117" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\Data Flow Task\EthUsd Flat File Source"
@@ -3454,6 +3729,10 @@ LIMIT 50</property>
           Id="Package\Data Flow Task\Convert Timestamp and ValueETH to String"
           TopLeft="304.074057460199,28.8888886879992" />
         <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Data Flow Task\Convert USD AdjClose to Int"
+          TopLeft="313.333316213555,194.933332127995" />
+        <NodeLayout
           Size="185.6,41.6"
           Id="Package\Data Flow Task\Sort USD Data by Date"
           TopLeft="553.703673450668,193.940739392101" />
@@ -3470,31 +3749,17 @@ LIMIT 50</property>
           Id="Package\Data Flow Task\Merge Join with EthEur"
           TopLeft="873.333285616506,110.266666244798" />
         <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\EthEur Flat File Source"
+          TopLeft="73.9583292924286,109.849999236117" />
+        <NodeLayout
           Size="190.4,41.6"
           Id="Package\Data Flow Task\BigQuery ODBC Source"
           TopLeft="74.875000796591,27.5833322593734" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="964.649952397001,151.866666244798">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.2666670945617"
-              Start="0,0"
-              End="0,39.7666670945617">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.7666670945617" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\Sort EUR Data by Date"
+          TopLeft="544.166636934712,107.466665919357" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output1]"
           TopLeft="264.636900574639,215.658332053415">
@@ -3751,6 +4016,28 @@ LIMIT 50</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,55.0333316579128" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="964.649952397001,151.866666244798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.2666670945617"
+              Start="0,0"
+              End="0,39.7666670945617">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.7666670945617" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
