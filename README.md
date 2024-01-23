@@ -63,7 +63,7 @@ To enhance our analysis and provide a broader perspective, we propose the inclus
 For the sake of the project we will manually download the most recent data, which we limited to the latest year, directly from Yahoo website. These flat CSV files will serve as supplementary data, allowing us to compute transaction values in both USD and EUR.
 
 Now that we have the raw data saved with both blockchain transaction details and external market quotes, the next step is to load this data into our Data Warehouse (DW).
-## 3. Design Our Data Warehouse
+## 3. Designing Our Data Warehouse
 We have chosen to adopt the Dimensional Fact Model (DFM) as our method of choice. The approach involves creating a structured representation that highlights key dimensions and facts.
 
 In our case study the finest level of detail, or granularity, is represented by an individual transaction as of analyzing at the transaction level allows us to capture the nuances of interactions within the blockchain.
