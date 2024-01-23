@@ -62,6 +62,12 @@ To enhance our analysis and provide a broader perspective, we propose the inclus
 
 For the sake of the project we will manually download the most recent data, which we limited to the latest year, directly from Yahoo website. These flat CSV files will serve as supplementary data, allowing us to compute transaction values in both USD and EUR.
 
+The CSV structue is as follows: (what's really matters here is Date and Adj Close)
+
+| Date       | Open         | High         | Low          | Close        | Adj Close    | Volume      |
+|------------|--------------|--------------|--------------|--------------|--------------|-------------|
+| 2023-01-19 | 1403.281738  | 1437.872681  | 1402.476440  | 1433.107544  | 1433.107544  | 5937730920  |
+
 Now that we have the raw data saved with both blockchain transaction details and external market quotes, the next step is to load this data into our Data Warehouse (DW).
 ## 3. Designing Our Data Warehouse
 We have chosen to adopt the Dimensional Fact Model (DFM) as our method of choice. The approach involves creating a structured representation that highlights key dimensions and facts.
