@@ -63,8 +63,21 @@ To enhance our analysis and provide a broader perspective, we propose the inclus
 For the sake of the project we will manually download the most recent data, which we limited to the latest year, directly from Yahoo website. These flat CSV files will serve as supplementary data, allowing us to compute transaction values in both USD and EUR.
 
 Now that we have the raw data saved with both blockchain transaction details and external market quotes, the next step is to load this data into our Data Warehouse (DW).
+## 3. Design Our Data Warehouse
+We have chosen to adopt the Dimensional Fact Model (DFM) as our method of choice. The approach involves creating a structured representation that highlights key dimensions and facts.
 
-## 3. Loading Into Data Warehouse
+In our case study the finest level of detail, or granularity, is represented by an individual transaction as of analyzing at the transaction level allows us to capture the nuances of interactions within the blockchain.
+
+Once the grain of the fact table has been established, the next step is to select the relevant dimensions. In this case, two primary dimensions stand out: "Block" and "Token":
+- Block Dimension: This dimension captures details about the Ethereum blocks in which transactions occur. It includes information such as block number, timestamp, and other block-related metadata.
+- Token Dimension: This dimension focuses on the various tokens involved in transactions. It includes details like token type, contract address, and additional token-related information.
+
+Identifying the facts involves gathering various pieces of information from both transactions and token transfers within the Ethereum blockchain.
+To simplify the representation, we merge these pieces of information into a unified fact. This unified fact serves as a consolidated view for ERC-20 and ERC-721 transactions.
+
+- [ ] TODO: Explain we have a multi star schema
+
+## 4. Loading Into Data Warehouse
 In this step, we will show high-level steps on how we built our blockchain ETL pipeline. 
 
 
