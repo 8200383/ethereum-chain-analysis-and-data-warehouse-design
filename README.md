@@ -73,7 +73,7 @@ Once the grain of the fact table has been established, the next step is to selec
 - Token Dimension: This dimension focuses on the various tokens involved in transactions. It includes details like token type, contract address, and additional token-related information.
 
 Identifying the facts involves gathering various pieces of information from both transactions and token transfers within the Ethereum blockchain.
-To simplify the representation, we merge these pieces of information into a unified fact. This unified fact serves as a consolidated view for ERC-20 and ERC-721 transactions.
+To simplify the representation we merge these pieces into a unified fact, serving as a consolidated view for ERC-20 and ERC-721 transactions.
 
 - [ ] TODO: Explain we have a multi star schema
 
