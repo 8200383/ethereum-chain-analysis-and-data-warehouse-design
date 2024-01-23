@@ -83,6 +83,13 @@ In this step, we will show high-level steps on how we built our blockchain ETL p
 
 For demonstration purposes we will assume that dimensions tables for blocks, tokens and fact transactions,  have already been created in our data warehouse and the columns line up with what's in the ETL process.
 
-## A1.  
+## A1.  Data Warehouse ER Diagram
+![DWER](diagrams/DW.svg)
+## A2. Transactions DFM
+![TDFM](diagrams/TransactionsDFM.png)
+## A3. WalletBlockSnapshot DFM
+![WBSDFM](diagrams/WalletBlockSnapshotDFM.png)
+## A4. TokenBlockSnapshot DFM
+![TBSDFM](diagrams/TokenBlockSnapshotDFM.png)
 ## References
 The DIY Blockchain Data Warehouse, By Steven Wang — Aug 23, 2022 https://blog.luabase.com/diy-blockchain-data-warehouse
