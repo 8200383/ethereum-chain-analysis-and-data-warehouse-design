@@ -97,5 +97,7 @@ For demonstration purposes we will assume that dimensions tables for blocks, tok
 ![WBSDFM](diagrams/WalletBlockSnapshotDFM.png)
 ## A4. TokenBlockSnapshot DFM
 ![TBSDFM](diagrams/TokenBlockSnapshotDFM.png)
+## A5. ETL BPMN
+![BPMN](diagrams/BPMNDiagram.png)
 ## References
 The DIY Blockchain Data Warehouse, By Steven Wang — Aug 23, 2022 https://blog.luabase.com/diy-blockchain-data-warehouse
