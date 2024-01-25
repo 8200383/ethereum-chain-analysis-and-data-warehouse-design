@@ -93,6 +93,7 @@ For demonstration purposes we will assume that dimensions tables for blocks, tok
 ## 5. Querying Our Data Warehouse
 
 ## 6. Designing PowerBI Dashboard
+We don't have a proper list of queries we want to make, typically the manager chooses a data exploration path that was not anticipated by the development team, so let's analyze the data we extract to the Data Warehouse and analyze the queries we can make!
 
 ## A1.  Data Warehouse ER Diagram
 ![DWER](diagrams/DW.svg)
