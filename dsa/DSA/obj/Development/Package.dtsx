@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="178"
-  DTS:VersionGUID="{6C0C6006-FE84-4229-955F-CDADBFEAA473}">
+  DTS:VersionBuild="192"
+  DTS:VersionGUID="{2B668905-AE34-4BB5-ACD4-2D4A67368EFB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -736,6 +736,18 @@ LIMIT 50</property>
                       cachedDataType="i8"
                       cachedName="Adj Close EUR"
                       lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close EUR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Inputs[Derived Column Input].Columns[Adj Close USD]"
+                      cachedDataType="i8"
+                      cachedName="Adj Close USD"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close USD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Inputs[Derived Column Input].Columns[GasPriceETH]"
+                      cachedDataType="numeric"
+                      cachedName="GasPriceETH"
+                      cachedPrecision="38"
+                      cachedScale="18"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[GasPriceETH]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -794,6 +806,54 @@ LIMIT 50</property>
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">ValueETH * (DT_DECIMAL,6)([Adj Close EUR] / 1000000)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[GasPriceEUR]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[GasPriceEUR]"
+                      name="GasPriceEUR"
+                      precision="38"
+                      scale="6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[GasPriceETH]} * (DT_DECIMAL,6)(#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close EUR]} / 1000000)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GasPriceETH * (DT_DECIMAL,6)([Adj Close EUR] / 1000000)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[GasPriceUSD]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[GasPriceUSD]"
+                      name="GasPriceUSD"
+                      precision="38"
+                      scale="6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[GasPriceETH]} * (DT_DECIMAL,6)(#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close USD]} / 1000000)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GasPriceETH * (DT_DECIMAL,6)([Adj Close USD] / 1000000)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -925,6 +985,11 @@ LIMIT 50</property>
                       cachedDataType="text"
                       cachedName="TokenTransferValueETH"
                       lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TokenTransferValueETH]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Convert Timestamp and ValueETH to String.Inputs[Data Conversion Input].Columns[TransactionGasPrice]"
+                      cachedDataType="i8"
+                      cachedName="TransactionGasPrice"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TransactionGasPrice]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -974,6 +1039,28 @@ LIMIT 50</property>
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TokenTransferValueETH]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Convert Timestamp and ValueETH to String.Outputs[Data Conversion Output].Columns[TransactionGasPriceString]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Convert Timestamp and ValueETH to String.Outputs[Data Conversion Output].Columns[TransactionGasPriceString]"
+                      name="TransactionGasPriceString"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TransactionGasPrice]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1413,6 +1500,13 @@ LIMIT 50</property>
                       cachedLength="50"
                       cachedName="TokenTransferValueETHString"
                       lineageId="Package\Data Flow Task\Convert Timestamp and ValueETH to String.Outputs[Data Conversion Output].Columns[TokenTransferValueETHString]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Format Converted Values.Inputs[Derived Column Input].Columns[TransactionGasPriceString]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TransactionGasPriceString"
+                      lineageId="Package\Data Flow Task\Convert Timestamp and ValueETH to String.Outputs[Data Conversion Output].Columns[TransactionGasPriceString]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1470,6 +1564,30 @@ LIMIT 50</property>
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">(DT_NUMERIC,38,2)TokenTransferValueETHString / 1000000000000000000L</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Format Converted Values.Outputs[Derived Column Output].Columns[GasPriceETH]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Format Converted Values.Outputs[Derived Column Output].Columns[GasPriceETH]"
+                      name="GasPriceETH"
+                      precision="38"
+                      scale="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_NUMERIC,38,18)#{Package\Data Flow Task\Convert Timestamp and ValueETH to String.Outputs[Data Conversion Output].Columns[TransactionGasPriceString]} / 1000000000000000000L</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_NUMERIC,38,18)TransactionGasPriceString / 1000000000000000000L</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1607,12 +1725,6 @@ LIMIT 50</property>
                       externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransactionGas]"
                       lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[TransactionGas]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].Columns[TransactionGasPrice]"
-                      cachedDataType="i8"
-                      cachedName="TransactionGasPrice"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransactionGasPrice]"
-                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[TransactionGasPrice]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].Columns[TransactionGasUsed]"
                       cachedDataType="i8"
                       cachedName="TransactionGasUsed"
@@ -1720,6 +1832,30 @@ LIMIT 50</property>
                       cachedName="TransactionHash"
                       externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransactionHash]"
                       lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[TransactionHash]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].Columns[GasPriceEUR]"
+                      cachedDataType="numeric"
+                      cachedName="GasPriceEUR"
+                      cachedPrecision="38"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[GasPriceEUR]"
+                      lineageId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[GasPriceEUR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].Columns[GasPriceUSD]"
+                      cachedDataType="numeric"
+                      cachedName="GasPriceUSD"
+                      cachedPrecision="38"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[GasPriceUSD]"
+                      lineageId="Package\Data Flow Task\Calculate ValueEUR and ValueUSD.Outputs[Derived Column Output].Columns[GasPriceUSD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].Columns[GasPriceETH]"
+                      cachedDataType="numeric"
+                      cachedName="GasPriceETH"
+                      cachedPrecision="38"
+                      cachedScale="18"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[GasPriceETH]"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[GasPriceETH]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1747,10 +1883,6 @@ LIMIT 50</property>
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransactionGas]"
                       dataType="i8"
                       name="TransactionGas" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransactionGasPrice]"
-                      dataType="i8"
-                      name="TransactionGasPrice" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransactionGasUsed]"
                       dataType="i8"
@@ -1831,6 +1963,24 @@ LIMIT 50</property>
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransferID]"
                       dataType="i4"
                       name="TransferID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[GasPriceEUR]"
+                      dataType="numeric"
+                      name="GasPriceEUR"
+                      precision="12"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[GasPriceUSD]"
+                      dataType="numeric"
+                      name="GasPriceUSD"
+                      precision="12"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[GasPriceETH]"
+                      dataType="numeric"
+                      name="GasPriceETH"
+                      precision="20"
+                      scale="18" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2010,6 +2160,13 @@ LIMIT 50</property>
                       cachedDataType="text"
                       cachedName="TransactionHash"
                       lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[TransactionHash]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[GasPriceETH]"
+                      cachedDataType="numeric"
+                      cachedName="GasPriceETH"
+                      cachedPrecision="38"
+                      cachedScale="18"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[GasPriceETH]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2341,6 +2498,21 @@ LIMIT 50</property>
                           name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[TransactionHash]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[GasPriceETH]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[GasPriceETH]"
+                      name="GasPriceETH"
+                      precision="38"
+                      scale="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[GasPriceETH]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2502,6 +2674,13 @@ LIMIT 50</property>
                       cachedDataType="text"
                       cachedName="TransactionHash"
                       lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[TransactionHash]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[GasPriceETH]"
+                      cachedDataType="numeric"
+                      cachedName="GasPriceETH"
+                      cachedPrecision="38"
+                      cachedScale="18"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[GasPriceETH]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2828,6 +3007,21 @@ LIMIT 50</property>
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[TransactionHash]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[GasPriceETH]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[GasPriceETH]"
+                      name="GasPriceETH"
+                      precision="38"
+                      scale="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[GasPriceETH]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3207,6 +3401,24 @@ LIMIT 50</property>
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Inputs[Sort Input].Columns[GasPriceETH]"
+                      cachedDataType="numeric"
+                      cachedName="GasPriceETH"
+                      cachedPrecision="38"
+                      cachedScale="18"
+                      lineageId="Package\Data Flow Task\Format Converted Values.Outputs[Derived Column Output].Columns[GasPriceETH]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3502,6 +3714,21 @@ LIMIT 50</property>
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TransactionHash]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[GasPriceETH]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[GasPriceETH]"
+                      name="GasPriceETH"
+                      precision="38"
+                      scale="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Format Converted Values.Outputs[Derived Column Output].Columns[GasPriceETH]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3861,17 +4088,41 @@ LIMIT 50</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="280.8,41.6"
-          Id="Package\Data Flow Task\Convert Timestamp and ValueETH to String"
-          TopLeft="304.074057460199,28.8888886879992" />
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\Sort USD Data by Date"
+          TopLeft="553.703673450668,193.940739392101" />
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\Data Flow Task\Format Converted Values"
+          TopLeft="636.342557824368,32.9907408018449" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\EthEur Flat File Source"
+          TopLeft="73.9583292924286,109.849999236117" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Data Flow Task\Convert EUR AdjClose to Int"
+          TopLeft="307.499983198941,107.399999403358" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\Sort EUR Data by Date"
+          TopLeft="544.166636934712,107.466665919357" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Data Flow Task\Convert USD AdjClose to Int"
+          TopLeft="313.333316213555,194.933332127995" />
         <NodeLayout
           Size="178.4,41.6"
           Id="Package\Data Flow Task\Sort BQ Data by Date"
           TopLeft="877.499952055516,34.6666664255989" />
         <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Data Flow Task\Sort EUR Data by Date"
-          TopLeft="544.166636934712,107.466665919357" />
+          Size="181.6,41.6"
+          Id="Package\Data Flow Task\Insert into SA OLE DB"
+          TopLeft="1114.99993907909,302.599999041756" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Data Flow Task\EthUsd Flat File Source"
+          TopLeft="76.6369005746389,194.783331978835" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\Data Flow Task\Merge Join with EthUsd"
@@ -3881,41 +4132,17 @@ LIMIT 50</property>
           Id="Package\Data Flow Task\Merge Join with EthEur"
           TopLeft="873.333285616506,110.266666244798" />
         <NodeLayout
-          Size="196.8,41.6"
-          Id="Package\Data Flow Task\Format Converted Values"
-          TopLeft="636.342557824368,32.9907408018449" />
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\Data Flow Task\Convert EUR AdjClose to Int"
-          TopLeft="307.499983198941,107.399999403358" />
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Data Flow Task\EthEur Flat File Source"
-          TopLeft="73.9583292924286,109.849999236117" />
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\Data Flow Task\Convert USD AdjClose to Int"
-          TopLeft="313.333316213555,194.933332127995" />
-        <NodeLayout
           Size="244.8,41.6"
           Id="Package\Data Flow Task\Calculate ValueEUR and ValueUSD"
           TopLeft="834.999954377613,303.266664997273" />
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Data Flow Task\Sort USD Data by Date"
-          TopLeft="553.703673450668,193.940739392101" />
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\Data Flow Task\BigQuery ODBC Source"
           TopLeft="74.875000796591,27.5833322593734" />
         <NodeLayout
-          Size="188,41.6"
-          Id="Package\Data Flow Task\EthUsd Flat File Source"
-          TopLeft="76.6369005746389,194.783331978835" />
-        <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\Data Flow Task\Insert into SA OLE DB"
-          TopLeft="1114.99993907909,302.599999041756" />
+          Size="280.8,41.6"
+          Id="Package\Data Flow Task\Convert Timestamp and ValueETH to String"
+          TopLeft="304.074057460199,28.8888886879992" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Sort Output2]"
           TopLeft="966.416618836011,76.2666664255989">
@@ -4206,14 +4433,6 @@ LIMIT 50</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\BigQuery ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Insert into SA OLE DB">
     <Properties>
       <Property>
@@ -4223,6 +4442,14 @@ LIMIT 50</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\BigQuery ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
