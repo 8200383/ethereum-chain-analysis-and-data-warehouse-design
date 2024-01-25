@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>DW</Name>
-    <LastWriteTime>2024-01-22T18:25:32.1052954Z</LastWriteTime>
+    <LastWriteTime>2024-01-25T19:07:46.7938805Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimTokenSnapshot.dtsx</Name>
-      <LastWriteTime>2024-01-22T17:21:54.9789418Z</LastWriteTime>
+      <LastWriteTime>2024-01-25T14:31:37.8026686Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -24,6 +24,26 @@
     <ProjectBuildItemInfo>
       <Name>DimBlock.dtsx</Name>
       <LastWriteTime>2024-01-22T18:31:36.7382914Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DimWallet.dtsx</Name>
+      <LastWriteTime>2024-01-25T15:24:03.9841449Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>FactTokenBlockSnapshot.dtsx</Name>
+      <LastWriteTime>2024-01-25T19:11:48.249244Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>FactWalletBlockSnapshot.dtsx</Name>
+      <LastWriteTime>2024-01-25T18:57:19.7854057Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>FTransaction.dtsx</Name>
+      <LastWriteTime>2024-01-25T15:46:51.755396Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

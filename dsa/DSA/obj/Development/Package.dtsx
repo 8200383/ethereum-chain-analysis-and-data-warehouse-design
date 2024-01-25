@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="174"
-  DTS:VersionGUID="{260FE751-72F9-4BBE-92C7-40D2AEA4DBAE}">
+  DTS:VersionBuild="178"
+  DTS:VersionGUID="{6C0C6006-FE84-4229-955F-CDADBFEAA473}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -245,6 +245,7 @@ tx.from_address AS FromAddress,
 tx.to_address AS ToAddress, 
 tx.value AS TokenTransferValueETH, 
 tx.block_timestamp AS TokenTransferTimestamp, 
+trans.hash AS TransactionHash,
 trans.gas AS TransactionGas, 
 trans.gas_price AS TransactionGasPrice, 
 trans.receipt_gas_used AS TransactionGasUsed, 
@@ -454,6 +455,13 @@ LIMIT 50</property>
                       externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockTransactionCount]"
                       lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockTransactionCount]"
                       name="BlockTransactionCount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TransactionHash]"
+                      codePage="1252"
+                      dataType="text"
+                      externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[TransactionHash]"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TransactionHash]"
+                      name="TransactionHash" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -543,6 +551,11 @@ LIMIT 50</property>
                       refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockTransactionCount]"
                       dataType="i8"
                       name="BlockTransactionCount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[TransactionHash]"
+                      codePage="1252"
+                      dataType="text"
+                      name="TransactionHash" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -674,6 +687,13 @@ LIMIT 50</property>
                       externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[BlockTransactionCount]"
                       lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[BlockTransactionCount]"
                       name="BlockTransactionCount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[TransactionHash]"
+                      codePage="1252"
+                      dataType="text"
+                      externalMetadataColumnId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].ExternalColumns[TransactionHash]"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[TransactionHash]"
+                      name="TransactionHash" />
                     <outputColumn
                       refId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1693,6 +1713,13 @@ LIMIT 50</property>
                       cachedName="BlockTransactionCount"
                       externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[BlockTransactionCount]"
                       lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[BlockTransactionCount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].Columns[TransactionHash]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="TransactionHash"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransactionHash]"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[TransactionHash]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1795,6 +1822,11 @@ LIMIT 50</property>
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[BlockTransactionCount]"
                       dataType="i8"
                       name="BlockTransactionCount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransactionHash]"
+                      codePage="1252"
+                      dataType="text"
+                      name="TransactionHash" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insert into SA OLE DB.Inputs[OLE DB Destination Input].ExternalColumns[TransferID]"
                       dataType="i4"
@@ -1972,6 +2004,12 @@ LIMIT 50</property>
                       cachedDataType="i8"
                       cachedName="BlockTransactionCount"
                       lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[BlockTransactionCount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[TransactionHash]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="TransactionHash"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[TransactionHash]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2289,6 +2327,20 @@ LIMIT 50</property>
                           name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[BlockTransactionCount]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[TransactionHash]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[TransactionHash]"
+                      name="TransactionHash">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthEur.Inputs[Merge Join Left Input].Columns[TransactionHash]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2444,6 +2496,12 @@ LIMIT 50</property>
                       cachedDataType="i8"
                       cachedName="BlockTransactionCount"
                       lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[BlockTransactionCount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[TransactionHash]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="TransactionHash"
+                      lineageId="Package\Data Flow Task\Merge Join with EthEur.Outputs[Merge Join Output].Columns[TransactionHash]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2756,6 +2814,20 @@ LIMIT 50</property>
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[BlockTransactionCount]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[TransactionHash]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[TransactionHash]"
+                      name="TransactionHash">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join with EthUsd.Inputs[Merge Join Left Input].Columns[TransactionHash]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3118,6 +3190,23 @@ LIMIT 50</property>
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Inputs[Sort Input].Columns[TransactionHash]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="TransactionHash"
+                      lineageId="Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TransactionHash]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3401,6 +3490,20 @@ LIMIT 50</property>
                           name="SortColumnId">#{Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[BlockTransactionCount]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[TransactionHash]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\Sort BQ Data by Date.Outputs[Sort Output].Columns[TransactionHash]"
+                      name="TransactionHash">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\BigQuery ODBC Source.Outputs[ODBC Source Output].Columns[TransactionHash]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -3679,7 +3782,34 @@ LIMIT 50</property>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E95F656B-16C0-425A-A18F-85182138B925}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1E1B9B9D-6EF1-4E5E-8C0E-EBC87011F4C4}"
+          SQLTask:SqlStatementSource="DELETE FROM Transfers" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3A96F07F-3352-4C48-A37A-52ACFB710EC1}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -3691,11 +3821,37 @@ LIMIT 50</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="5.5,5.5" />
+          TopLeft="331.333315530586,55.7666663171186" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="89.166661794815,55.4666662809584" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="253.966661794815,76.4166662990385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.3666537357707,0"
+              Start="0,0"
+              End="69.8666537357707,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69.8666537357707,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3705,37 +3861,25 @@ LIMIT 50</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="188,41.6"
-          Id="Package\Data Flow Task\Merge Join with EthUsd"
-          TopLeft="869.166619177495,199.13333333936" />
-        <NodeLayout
-          Size="244.8,41.6"
-          Id="Package\Data Flow Task\Calculate ValueEUR and ValueUSD"
-          TopLeft="834.999954377613,303.266664997273" />
-        <NodeLayout
-          Size="188,41.6"
-          Id="Package\Data Flow Task\EthUsd Flat File Source"
-          TopLeft="76.6369005746389,194.783331978835" />
-        <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\Data Flow Task\Insert into SA OLE DB"
-          TopLeft="1114.99993907909,302.599999041756" />
+          Size="280.8,41.6"
+          Id="Package\Data Flow Task\Convert Timestamp and ValueETH to String"
+          TopLeft="304.074057460199,28.8888886879992" />
         <NodeLayout
           Size="178.4,41.6"
           Id="Package\Data Flow Task\Sort BQ Data by Date"
           TopLeft="877.499952055516,34.6666664255989" />
         <NodeLayout
-          Size="280.8,41.6"
-          Id="Package\Data Flow Task\Convert Timestamp and ValueETH to String"
-          TopLeft="304.074057460199,28.8888886879992" />
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\Sort EUR Data by Date"
+          TopLeft="544.166636934712,107.466665919357" />
         <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\Data Flow Task\Convert USD AdjClose to Int"
-          TopLeft="313.333316213555,194.933332127995" />
+          Size="188,41.6"
+          Id="Package\Data Flow Task\Merge Join with EthUsd"
+          TopLeft="869.166619177495,199.13333333936" />
         <NodeLayout
           Size="185.6,41.6"
-          Id="Package\Data Flow Task\Sort USD Data by Date"
-          TopLeft="553.703673450668,193.940739392101" />
+          Id="Package\Data Flow Task\Merge Join with EthEur"
+          TopLeft="873.333285616506,110.266666244798" />
         <NodeLayout
           Size="196.8,41.6"
           Id="Package\Data Flow Task\Format Converted Values"
@@ -3746,20 +3890,164 @@ LIMIT 50</property>
           TopLeft="307.499983198941,107.399999403358" />
         <NodeLayout
           Size="185.6,41.6"
-          Id="Package\Data Flow Task\Merge Join with EthEur"
-          TopLeft="873.333285616506,110.266666244798" />
-        <NodeLayout
-          Size="185.6,41.6"
           Id="Package\Data Flow Task\EthEur Flat File Source"
           TopLeft="73.9583292924286,109.849999236117" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Data Flow Task\Convert USD AdjClose to Int"
+          TopLeft="313.333316213555,194.933332127995" />
+        <NodeLayout
+          Size="244.8,41.6"
+          Id="Package\Data Flow Task\Calculate ValueEUR and ValueUSD"
+          TopLeft="834.999954377613,303.266664997273" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\Sort USD Data by Date"
+          TopLeft="553.703673450668,193.940739392101" />
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\Data Flow Task\BigQuery ODBC Source"
           TopLeft="74.875000796591,27.5833322593734" />
         <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Data Flow Task\Sort EUR Data by Date"
-          TopLeft="544.166636934712,107.466665919357" />
+          Size="188,41.6"
+          Id="Package\Data Flow Task\EthUsd Flat File Source"
+          TopLeft="76.6369005746389,194.783331978835" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Data Flow Task\Insert into SA OLE DB"
+          TopLeft="1114.99993907909,302.599999041756" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output2]"
+          TopLeft="966.416618836011,76.2666664255989">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.9999998191992"
+              Start="0,0"
+              End="0,26.4999998191992">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4999998191992" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="739.303673450668,217.337036365731">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129.862945726827,0"
+              Start="0,0"
+              End="122.362945726827,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="122.362945726827,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="729.766636934712,129.666666082077">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.566648681794,0"
+              Start="0,0"
+              End="136.066648681794,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="136.066648681794,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ODBC Source Output]"
+          TopLeft="265.275000796591,49.0361104736863">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.7990566636084,0"
+              Start="0,0"
+              End="31.2990566636084,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="31.2990566636084,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output1]"
+          TopLeft="960.283286777554,240.73333333936">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.5333316579128"
+              Start="0,0"
+              End="0,55.0333316579128">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.0333316579128" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="964.649952397001,151.866666244798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.2666670945617"
+              Start="0,0"
+              End="0,39.7666670945617">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.7666670945617" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output1]"
           TopLeft="264.636900574639,215.658332053415">
@@ -3914,141 +4202,17 @@ LIMIT 50</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output2]"
-          TopLeft="966.416618836011,76.2666664255989">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.9999998191992"
-              Start="0,0"
-              End="0,26.4999998191992">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.4999998191992" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output1]"
-          TopLeft="739.303673450668,217.337036365731">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="129.862945726827,0"
-              Start="0,0"
-              End="122.362945726827,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="122.362945726827,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="729.766636934712,129.666666082077">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="143.566648681794,0"
-              Start="0,0"
-              End="136.066648681794,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="136.066648681794,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[ODBC Source Output]"
-          TopLeft="265.275000796591,49.0361104736863">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.7990566636084,0"
-              Start="0,0"
-              End="31.2990566636084,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="31.2990566636084,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output1]"
-          TopLeft="960.283286777554,240.73333333936">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62.5333316579128"
-              Start="0,0"
-              End="0,55.0333316579128">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,55.0333316579128" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="964.649952397001,151.866666244798">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.2666670945617"
-              Start="0,0"
-              End="0,39.7666670945617">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.7666670945617" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\BigQuery ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Insert into SA OLE DB">
     <Properties>
@@ -4059,14 +4223,6 @@ LIMIT 50</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\BigQuery ODBC Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
