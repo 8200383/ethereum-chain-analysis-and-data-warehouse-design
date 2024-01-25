@@ -90,9 +90,9 @@ In this step, we will show high-level steps on how we built our blockchain ETL p
 
 For demonstration purposes we will assume that dimensions tables for blocks, tokens and fact transactions,  have already been created in our data warehouse and the columns line up with what's in the ETL process.
 
-5. Querying Our Data Warehouse
+## 5. Querying Our Data Warehouse
 
-6. Designing PowerBi Dashboard
+## 6. Designing PowerBI Dashboard
 
 ## A1.  Data Warehouse ER Diagram
 ![DWER](diagrams/DW.svg)
