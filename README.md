@@ -22,7 +22,10 @@ But knowing which methods to call and when can be challenging—for example, get
 
 Nevertheless, when we zoom into the Google BigQuery Ethereum data sets, we notice that additional work is required to access important information.
 
-## 2. Transforming Blockchain Data
+## 2. Data Warehouse Concept
+- [ ] Talk about Kimbal Bottom-Up
+      
+## 3. Transforming Blockchain Data
 We will start loading small footprints of the Ethereum blockchain into our Data Storage Architecture (DSA).  Ideally the ETL process should pause when data collection catches up to the head of the chain. However, we incremental loading using the datetime stamp, looking only for the latest transactions missing in our database, this flow is triggered once a day at midnight or is manually triggered.
 
 The following code snippet will stream from Ethereum over 500 GB of data from the last month and onwards into our DSA.
@@ -70,7 +73,7 @@ The CSV structue is as follows: (what's really matters here is Date and Adj Clos
 | 2023-01-19 | 1403.281738  | 1437.872681  | 1402.476440  | 1433.107544  | 1433.107544  | 5937730920  |
 
 Now that we have the raw data saved with both blockchain transaction details and external market quotes, the next step is to load this data into our Data Warehouse (DW).
-## 3. Designing Our Data Warehouse
+## 4. Designing Our Data Warehouse
 We have chosen to adopt the Dimensional Fact Model (DFM) as our method of choice. The approach involves creating a structured representation that highlights key dimensions and facts.
 
 In our case study the finest level of detail, or granularity, is represented by an individual transaction as of analyzing at the transaction level allows us to capture the nuances of interactions within the blockchain.
@@ -84,16 +87,17 @@ To simplify the representation we merge these pieces into a unified fact, servin
 
 - [ ] TODO: Explain we have a multi star schema
 
-## 4. Loading Into Data Warehouse
+## 5. Loading Into Data Warehouse
 In this step, we will show high-level steps on how we built our blockchain ETL pipeline. 
-
 
 For demonstration purposes we will assume that dimensions tables for blocks, tokens and fact transactions,  have already been created in our data warehouse and the columns line up with what's in the ETL process.
 
-## 5. Querying Our Data Warehouse
+- [ ] Explain ETL pipeline
 
 ## 6. Designing PowerBI Dashboard
 We don't have a proper list of queries we want to make, typically the manager chooses a data exploration path that was not anticipated by the development team, so let's analyze the data we extract to the Data Warehouse and analyze the queries we can make!
+
+- [ ] Average Gas Evolution over time (per BlockKey and TimestampKey)
 
 ## A1.  Data Warehouse ER Diagram
 ![DWER](diagrams/DW.svg)
