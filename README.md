@@ -109,5 +109,7 @@ We don't have a proper list of queries we want to make, typically the manager ch
 ![TBSDFM](diagrams/TokenBlockSnapshotDFM.png)
 ## A5. ETL BPMN
 ![BPMN](diagrams/BPMNDiagram.png)
+## A6. DSA SSIS
+![DSA](diagrams/DSA.png)
 ## References
 The DIY Blockchain Data Warehouse, By Steven Wang — Aug 23, 2022 https://blog.luabase.com/diy-blockchain-data-warehouse
