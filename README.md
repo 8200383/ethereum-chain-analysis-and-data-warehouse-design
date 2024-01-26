@@ -86,8 +86,8 @@ To simplify the representation we merge these pieces into a unified fact, servin
 ## 4. Designing PowerBI Dashboard
 We don't have a proper list of queries we want to make, typically the manager chooses a data exploration path that was not anticipated by the development team, so let's analyze the data we extract to the Data Warehouse and analyze the queries we can make!
 
-- [x] Average Gas Evolution over time (per BlockKey and TimestampKey)
-- [x] Wallet Balance over time (aggregate per WalletKey)
+- [x] EUR|ETH Average Gas Evolution over time (per BlockKey and TimestampKey)
+- [x] ETH Wallet Balance over time (aggregate per WalletKey)
 
 ## A1.  Data Warehouse ER Diagram
 ![DWER](diagrams/DW.svg)
