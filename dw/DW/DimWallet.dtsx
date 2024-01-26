@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{19D1DC3A-CF6B-4FE0-A123-48769DEACDE8}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{C53A68A0-4482-47DE-BAE8-15CCB882D5F8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,42 +58,42 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Convert Data to String"
+              refId="Package\Data Flow Task\Convert Address to String"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="Convert Data to String"
+              name="Convert Address to String"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Convert Data to String.Inputs[Data Conversion Input]"
+                  refId="Package\Data Flow Task\Convert Address to String.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Convert Data to String.Inputs[Data Conversion Input].Columns[Address]"
+                      refId="Package\Data Flow Task\Convert Address to String.Inputs[Data Conversion Input].Columns[Address]"
                       cachedCodepage="1252"
                       cachedDataType="text"
                       cachedName="Address"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]" />
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Output]"
+                  refId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Data Flow Task\Convert Data to String.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Data Flow Task\Convert Address to String.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Output].Columns[AddressString]"
+                      refId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Output].Columns[AddressString]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="42"
-                      lineageId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Output].Columns[AddressString]"
+                      lineageId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Output].Columns[AddressString]"
                       name="AddressString"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -101,7 +101,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -112,22 +112,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Error Output]"
+                  refId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Data Flow Task\Convert Data to String.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Data Flow Task\Convert Address to String.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -136,11 +136,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
+              refId="Package\Data Flow Task\DimWallet OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="DimWallet OLE DB Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -193,7 +193,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\DimWallet OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -201,29 +201,29 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\DimWallet OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressString]"
+                      refId="Package\Data Flow Task\DimWallet OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressString]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="42"
                       cachedName="AddressString"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
-                      lineageId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Output].Columns[AddressString]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimWallet OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      lineageId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Output].Columns[AddressString]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                      refId="Package\Data Flow Task\DimWallet OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
                       dataType="i4"
                       name="SurrogateKey" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      refId="Package\Data Flow Task\DimWallet OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
                       codePage="1252"
                       dataType="str"
                       length="42"
@@ -233,22 +233,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\DimWallet OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\DimWallet OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\DimWallet OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\DimWallet OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\DimWallet OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\DimWallet OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -257,11 +257,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Source"
+              refId="Package\Data Flow Task\Transfers OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="OLE DB Source"
+              name="Transfers OLE DB Source"
               usesDispositions="true"
               version="7">
               <properties>
@@ -322,7 +322,7 @@ FROM Transfers)</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Transfers OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_SA]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_SA]"
                   description="The OLE DB runtime connection used to access the database."
@@ -330,50 +330,50 @@ FROM Transfers)</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]"
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]"
                       codePage="1252"
                       dataType="text"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FromAddress]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]"
+                      externalMetadataColumnId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FromAddress]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[Address]"
                       name="Address"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FromAddress]"
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FromAddress]"
                       codePage="1252"
                       dataType="text"
                       name="FromAddress" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FromAddress]"
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FromAddress]"
                       codePage="1252"
                       dataType="text"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FromAddress]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FromAddress]"
                       name="FromAddress" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -385,14 +385,14 @@ FROM Transfers)</property>
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Data Conversion Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\DimWallet OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\Data Flow Task\Convert Data to String.Outputs[Data Conversion Output]" />
+              startId="Package\Data Flow Task\Convert Address to String.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Convert Data to String.Inputs[Data Conversion Input]"
+              endId="Package\Data Flow Task\Convert Address to String.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -423,27 +423,31 @@ FROM Transfers)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="93.3333282338251,116.133332525757" />
+          Size="221.6,41.6"
+          Id="Package\Data Flow Task\DimWallet OLE DB Destination"
+          TopLeft="614.999966397883,116.999999186397" />
         <NodeLayout
-          Size="180.8,41.6"
-          Id="Package\Data Flow Task\Convert Data to String"
+          Size="199.2,41.6"
+          Id="Package\Data Flow Task\Transfers OLE DB Source"
+          TopLeft="82.499995492399,117.866665847037" />
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\Data Flow Task\Convert Address to String"
           TopLeft="349.999980876844,119.599999168317" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="245.333328233825,138.666665847037">
+          TopLeft="281.699995492399,139.533332507677">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="104.666652643019,0"
+              EndConnector="68.299985384445,0"
               Start="0,0"
-              End="97.1666526430189,0">
+              End="60.799985384445,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="97.1666526430189,0" />
+                    End="60.799985384445,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -452,24 +456,20 @@ FROM Transfers)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="614.999966397883,116.999999186397" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="530.799980876844,139.099999177357">
+          TopLeft="546.799980876844,139.099999177357">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="84.1999855210387,0"
+              EndConnector="68.1999855210389,0"
               Start="0,0"
-              End="76.6999855210387,0">
+              End="60.6999855210389,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="76.6999855210387,0" />
+                    End="60.6999855210389,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -482,15 +482,7 @@ FROM Transfers)</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Data Flow Task\DimWallet OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -499,6 +491,14 @@ FROM Transfers)</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Transfers OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

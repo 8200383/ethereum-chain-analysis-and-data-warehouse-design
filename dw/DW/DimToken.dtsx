@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{C830B481-40EF-4E87-AA6B-AE21AE2F2B92}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{575DCE83-03C4-4955-8D12-A2549E060FF0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,37 +58,37 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Convert DT_TEXT to String"
+              refId="Package\Data Flow Task\Convert Address, Name and Symbol to String"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="Convert DT_TEXT to String"
+              name="Convert Address, Name and Symbol to String"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input]"
+                  refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input].Columns[TokenAddress]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Inputs[Data Conversion Input].Columns[TokenAddress]"
                       cachedCodepage="1252"
                       cachedDataType="text"
                       cachedName="TokenAddress"
                       lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenAddress]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input].Columns[TokenName]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Inputs[Data Conversion Input].Columns[TokenName]"
                       cachedCodepage="1252"
                       cachedDataType="text"
                       cachedName="TokenName"
                       lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenName]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input].Columns[TokenSymbol]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Inputs[Data Conversion Input].Columns[TokenSymbol]"
                       cachedCodepage="1252"
                       cachedDataType="text"
                       cachedName="TokenSymbol"
                       lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenSymbol]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input].Columns[TokenDecimals]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Inputs[Data Conversion Input].Columns[TokenDecimals]"
                       cachedCodepage="1252"
                       cachedDataType="text"
                       cachedName="TokenDecimals"
@@ -99,19 +99,19 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output]"
+                  refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenAddressString]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenAddressString]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="42"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenAddressString]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenAddressString]"
                       name="TokenAddressString"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -127,13 +127,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenNameString]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenNameString]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="50"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenNameString]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenNameString]"
                       name="TokenNameString"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -149,13 +149,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenSymbolString]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenSymbolString]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="10"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenSymbolString]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenSymbolString]"
                       name="TokenSymbolString"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -171,13 +171,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenDecimalsString]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenDecimalsString]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="50"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenDecimalsString]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenDecimalsString]"
                       name="TokenDecimalsString"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -196,22 +196,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output]"
+                  refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -220,11 +220,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\DimTokens OLE DB Destination"
+              refId="Package\Data Flow Task\DimToken OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="DimTokens OLE DB Destination"
+              name="DimToken OLE DB Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -277,7 +277,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\DimTokens OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\DimToken OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -285,91 +285,91 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContractIsERC20]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContractIsERC20]"
                       cachedDataType="bool"
                       cachedName="ContractIsERC20"
-                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC20]"
+                      externalMetadataColumnId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC20]"
                       lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractIsERC20]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContractIsERC721]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContractIsERC721]"
                       cachedDataType="bool"
                       cachedName="ContractIsERC721"
-                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC721]"
+                      externalMetadataColumnId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC721]"
                       lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractIsERC721]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenSymbolString]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenSymbolString]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="TokenSymbolString"
-                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Symbol]"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenSymbolString]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Symbol]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenSymbolString]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenNameString]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenNameString]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="TokenNameString"
-                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenNameString]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenNameString]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenDecimalsString]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenDecimalsString]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="TokenDecimalsString"
-                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Decimals]"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenDecimalsString]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Decimals]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenDecimalsString]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenAddressString]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TokenAddressString]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="42"
                       cachedName="TokenAddressString"
-                      externalMetadataColumnId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
-                      lineageId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output].Columns[TokenAddressString]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      lineageId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output].Columns[TokenAddressString]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address]"
                       codePage="1252"
                       dataType="str"
                       length="42"
                       name="Address" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Symbol]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Symbol]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="Symbol" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Decimals]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Decimals]"
                       dataType="i8"
                       name="Decimals" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC20]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC20]"
                       dataType="bool"
                       name="ERC20" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC721]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ERC721]"
                       dataType="bool"
                       name="ERC721" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
                       dataType="i4"
                       name="SurrogateKey" />
                   </externalMetadataColumns>
@@ -377,22 +377,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\DimToken OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\DimToken OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\DimToken OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DimTokens OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\DimToken OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -618,12 +618,12 @@ FROM Transfers</property>
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Data Conversion Output]"
-              endId="Package\Data Flow Task\DimTokens OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\DimToken OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\Data Flow Task\Convert DT_TEXT to String.Outputs[Data Conversion Output]" />
+              startId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Convert DT_TEXT to String.Inputs[Data Conversion Input]"
+              endId="Package\Data Flow Task\Convert Address, Name and Symbol to String.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -660,12 +660,12 @@ FROM Transfers</property>
           Id="Package\Data Flow Task\Transfers OLE DB Source"
           TopLeft="70.8333294631707,65.8666662086381" />
         <NodeLayout
-          Size="226.4,41.6"
-          Id="Package\Data Flow Task\DimTokens OLE DB Destination"
-          TopLeft="575.833301871188,64.9999995479981" />
+          Size="221.6,41.6"
+          Id="Package\Data Flow Task\DimToken OLE DB Destination"
+          TopLeft="668.333296817211,65.8666662086381" />
         <NodeLayout
-          Size="204.8,41.6"
-          Id="Package\Data Flow Task\Convert DT_TEXT to String"
+          Size="288,41.6"
+          Id="Package\Data Flow Task\Convert Address, Name and Symbol to String"
           TopLeft="334.166648408606,66.733332869278" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
@@ -673,14 +673,14 @@ FROM Transfers</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="64.1333189454348,0"
+              EndConnector="64.1333189454353,0"
               Start="0,0"
-              End="56.6333189454348,0">
+              End="56.6333189454353,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="56.6333189454348,0" />
+                    End="56.6333189454353,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -691,18 +691,18 @@ FROM Transfers</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="538.966648408606,86.666666208638">
+          TopLeft="622.166648408606,87.099999538958">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="36.8666534625822,0"
+              EndConnector="46.1666484086051,0"
               Start="0,0"
-              End="29.3666534625822,0">
+              End="38.6666484086051,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="29.3666534625822,0" />
+                    End="38.6666484086051,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -735,7 +735,7 @@ FROM Transfers</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\DimTokens OLE DB Destination">
+    design-time-name="Package\Data Flow Task\DimToken OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

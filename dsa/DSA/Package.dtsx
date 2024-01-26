@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="192"
-  DTS:VersionGUID="{2B668905-AE34-4BB5-ACD4-2D4A67368EFB}">
+  DTS:VersionBuild="193"
+  DTS:VersionGUID="{B2D4677D-0A67-47F4-B3C2-92AD530064E1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -799,13 +799,13 @@ LIMIT 50</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[ValueETH]} * (DT_DECIMAL,6)(#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close EUR]} / 1000000)</property>
+                          name="Expression">#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[ValueETH]} * (DT_DECIMAL,6)(#{Package\Data Flow Task\Merge Join with EthUsd.Outputs[Merge Join Output].Columns[Adj Close USD]} / 1000000)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ValueETH * (DT_DECIMAL,6)([Adj Close EUR] / 1000000)</property>
+                          name="FriendlyExpression">ValueETH * (DT_DECIMAL,6)([Adj Close USD] / 1000000)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn

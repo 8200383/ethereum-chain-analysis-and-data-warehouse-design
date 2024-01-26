@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{0DB45C0C-D834-4FFC-AA10-14A8415B618F}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{78594C7B-6A6B-4CA5-B6F8-0C3F799A0CEE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,48 +58,48 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Data Conversion"
+              refId="Package\Data Flow Task\Convert Month and Week day to String"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="Data Conversion"
+              name="Convert Month and Week day to String"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\Data Flow Task\Convert Month and Week day to String.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[MonthName]"
+                      refId="Package\Data Flow Task\Convert Month and Week day to String.Inputs[Data Conversion Input].Columns[MonthName]"
                       cachedDataType="wstr"
                       cachedLength="9"
                       cachedName="MonthName"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[MonthName]" />
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[MonthName]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[WeekName]"
+                      refId="Package\Data Flow Task\Convert Month and Week day to String.Inputs[Data Conversion Input].Columns[WeekName]"
                       cachedDataType="wstr"
                       cachedLength="9"
                       cachedName="WeekName"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[WeekName]" />
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[WeekName]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Data Flow Task\Convert Month and Week day to String.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[MonthNameString]"
+                      refId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Output].Columns[MonthNameString]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="9"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[MonthNameString]"
+                      lineageId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Output].Columns[MonthNameString]"
                       name="MonthNameString"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -107,7 +107,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[MonthName]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[MonthName]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -115,13 +115,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[WeekNameString]"
+                      refId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Output].Columns[WeekNameString]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="9"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[WeekNameString]"
+                      lineageId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Output].Columns[WeekNameString]"
                       name="WeekNameString"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -129,7 +129,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[WeekName]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[WeekName]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -140,22 +140,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Data Flow Task\Convert Month and Week day to String.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -164,358 +164,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[TokenTransferTimestamp]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="TokenTransferTimestamp"
-                      cachedScale="6"
-                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[UnixTimestamp]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[UnixTimestamp]"
-                      name="UnixTimestamp"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[DATEDIFF]("ss",(DT_DATE)"1970-01-01",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">DATEDIFF("ss",(DT_DATE)"1970-01-01",TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Year]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Year]"
-                      name="Year"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[YEAR](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">YEAR(TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Month]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Month]"
-                      name="Month"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">MONTH(TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Day]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Day]"
-                      name="Day"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[DAY](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">DAY(TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Hour]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Hour]"
-                      name="Hour"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[DATEPART]("hour",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">DATEPART("hour",TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Minute]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Minute]"
-                      name="Minute"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[DATEPART]("minute",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">DATEPART("minute",TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Second]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Second]"
-                      name="Second"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[DATEPART]("second",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">DATEPART("second",TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Quarter]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Quarter]"
-                      name="Quarter"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[DATEPART]("quarter",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">DATEPART("quarter",TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Week]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Week]"
-                      name="Week"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[DATEPART]("week",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">DATEPART("week",TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[MonthName]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="9"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[MonthName]"
-                      name="MonthName"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">([MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 1 ? "January" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 2 ? "February" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 3 ? "March" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 4 ? "April" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 5 ? "May" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 6 ? "June" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 7 ? "July" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 8 ? "August" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 9 ? "September" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 10 ? "October" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 11 ? "November" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 12 ? "December" : "")</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(MONTH(TokenTransferTimestamp) == 1 ? "January" : MONTH(TokenTransferTimestamp) == 2 ? "February" : MONTH(TokenTransferTimestamp) == 3 ? "March" : MONTH(TokenTransferTimestamp) == 4 ? "April" : MONTH(TokenTransferTimestamp) == 5 ? "May" : MONTH(TokenTransferTimestamp) == 6 ? "June" : MONTH(TokenTransferTimestamp) == 7 ? "July" : MONTH(TokenTransferTimestamp) == 8 ? "August" : MONTH(TokenTransferTimestamp) == 9 ? "September" : MONTH(TokenTransferTimestamp) == 10 ? "October" : MONTH(TokenTransferTimestamp) == 11 ? "November" : MONTH(TokenTransferTimestamp) == 12 ? "December" : "")</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[WeekName]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="9"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[WeekName]"
-                      name="WeekName"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 1 ? "Sunday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 2 ? "Monday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 3 ? "Tuesday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 4 ? "Wednesday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 5 ? "Thursday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 6 ? "Friday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 7 ? "Saturday" : ""</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">DATEPART("dw",TokenTransferTimestamp) == 1 ? "Sunday" : DATEPART("dw",TokenTransferTimestamp) == 2 ? "Monday" : DATEPART("dw",TokenTransferTimestamp) == 3 ? "Tuesday" : DATEPART("dw",TokenTransferTimestamp) == 4 ? "Wednesday" : DATEPART("dw",TokenTransferTimestamp) == 5 ? "Thursday" : DATEPART("dw",TokenTransferTimestamp) == 6 ? "Friday" : DATEPART("dw",TokenTransferTimestamp) == 7 ? "Saturday" : ""</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[AM_PM]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[AM_PM]"
-                      name="AM_PM"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[DATEPART]("hour",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) &gt; 12 ? [DATEPART]("hour",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) - 12 : [DATEPART]("hour",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">DATEPART("hour",TokenTransferTimestamp) &gt; 12 ? DATEPART("hour",TokenTransferTimestamp) - 12 : DATEPART("hour",TokenTransferTimestamp)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[AP]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[AP]"
-                      name="AP"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">0</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">0</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\OLE DB Destination"
+              refId="Package\Data Flow Task\DimTimestamp OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="DimTimestamp OLE DB Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -568,7 +221,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -576,145 +229,145 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnixTimestamp]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnixTimestamp]"
                       cachedDataType="i4"
                       cachedName="UnixTimestamp"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnixTimestamp]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[UnixTimestamp]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnixTimestamp]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[UnixTimestamp]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
                       cachedDataType="i4"
                       cachedName="Year"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Year]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Year]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Month]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Month]"
                       cachedDataType="i4"
                       cachedName="Month"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Month]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Month]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Day]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Day]"
                       cachedDataType="i4"
                       cachedName="Day"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Day]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Day]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quarter]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quarter]"
                       cachedDataType="i4"
                       cachedName="Quarter"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Quarter]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Quarter]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Week]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Week]"
                       cachedDataType="i4"
                       cachedName="Week"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Week]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Week]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Week]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Week]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Hour]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Hour]"
                       cachedDataType="i4"
                       cachedName="Hour"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HH]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Hour]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HH]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Hour]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Minute]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Minute]"
                       cachedDataType="i4"
                       cachedName="Minute"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MM]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Minute]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MM]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Minute]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Second]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Second]"
                       cachedDataType="i4"
                       cachedName="Second"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SS]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Second]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SS]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Second]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WeekNameString]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WeekNameString]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="9"
                       cachedName="WeekNameString"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WeekName]"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[WeekNameString]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WeekName]"
+                      lineageId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Output].Columns[WeekNameString]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MonthNameString]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MonthNameString]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="9"
                       cachedName="MonthNameString"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[MonthNameString]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      lineageId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Output].Columns[MonthNameString]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AP]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AP]"
                       cachedDataType="i4"
                       cachedName="AP"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AM_PM]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[AP]" />
+                      externalMetadataColumnId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AM_PM]"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[AP]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
                       dataType="i4"
                       name="SurrogateKey" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnixTimestamp]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnixTimestamp]"
                       dataType="i8"
                       name="UnixTimestamp" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HH]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HH]"
                       dataType="i4"
                       name="HH" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MM]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MM]"
                       dataType="i4"
                       name="MM" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SS]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SS]"
                       dataType="i4"
                       name="SS" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AM_PM]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AM_PM]"
                       dataType="i4"
                       name="AM_PM" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
                       dataType="i4"
                       name="Day" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Week]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Week]"
                       dataType="i4"
                       name="Week" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WeekName]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WeekName]"
                       codePage="1252"
                       dataType="str"
                       length="9"
                       name="WeekName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
                       dataType="i4"
                       name="Month" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
                       codePage="1252"
                       dataType="str"
                       length="9"
                       name="MonthName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
                       dataType="i4"
                       name="Quarter" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
                       dataType="i4"
                       name="Year" />
                   </externalMetadataColumns>
@@ -722,22 +375,369 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Pass Timestamp to Date and split it into DimTimestamp's attributes"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Inputs[Derived Column Input].Columns[TokenTransferTimestamp]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="TokenTransferTimestamp"
+                      cachedScale="6"
+                      lineageId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[UnixTimestamp]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[UnixTimestamp]"
+                      name="UnixTimestamp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEDIFF]("ss",(DT_DATE)"1970-01-01",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("ss",(DT_DATE)"1970-01-01",TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[YEAR](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR(TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">MONTH(TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Day]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Day]"
+                      name="Day"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DAY](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DAY(TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Hour]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Hour]"
+                      name="Hour"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("hour",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("hour",TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Minute]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Minute]"
+                      name="Minute"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("minute",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("minute",TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Second]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Second]"
+                      name="Second"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("second",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("second",TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Quarter]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Quarter]"
+                      name="Quarter"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("quarter",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("quarter",TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Week]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[Week]"
+                      name="Week"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("week",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("week",TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[MonthName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="9"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[MonthName]"
+                      name="MonthName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 1 ? "January" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 2 ? "February" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 3 ? "March" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 4 ? "April" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 5 ? "May" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 6 ? "June" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 7 ? "July" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 8 ? "August" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 9 ? "September" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 10 ? "October" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 11 ? "November" : [MONTH](#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 12 ? "December" : "")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(MONTH(TokenTransferTimestamp) == 1 ? "January" : MONTH(TokenTransferTimestamp) == 2 ? "February" : MONTH(TokenTransferTimestamp) == 3 ? "March" : MONTH(TokenTransferTimestamp) == 4 ? "April" : MONTH(TokenTransferTimestamp) == 5 ? "May" : MONTH(TokenTransferTimestamp) == 6 ? "June" : MONTH(TokenTransferTimestamp) == 7 ? "July" : MONTH(TokenTransferTimestamp) == 8 ? "August" : MONTH(TokenTransferTimestamp) == 9 ? "September" : MONTH(TokenTransferTimestamp) == 10 ? "October" : MONTH(TokenTransferTimestamp) == 11 ? "November" : MONTH(TokenTransferTimestamp) == 12 ? "December" : "")</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[WeekName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="9"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[WeekName]"
+                      name="WeekName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 1 ? "Sunday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 2 ? "Monday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 3 ? "Tuesday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 4 ? "Wednesday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 5 ? "Thursday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 6 ? "Friday" : [DATEPART]("dw",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) == 7 ? "Saturday" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("dw",TokenTransferTimestamp) == 1 ? "Sunday" : DATEPART("dw",TokenTransferTimestamp) == 2 ? "Monday" : DATEPART("dw",TokenTransferTimestamp) == 3 ? "Tuesday" : DATEPART("dw",TokenTransferTimestamp) == 4 ? "Wednesday" : DATEPART("dw",TokenTransferTimestamp) == 5 ? "Thursday" : DATEPART("dw",TokenTransferTimestamp) == 6 ? "Friday" : DATEPART("dw",TokenTransferTimestamp) == 7 ? "Saturday" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[AM_PM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[AM_PM]"
+                      name="AM_PM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("hour",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) &gt; 12 ? [DATEPART]("hour",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]}) - 12 : [DATEPART]("hour",#{Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output].Columns[TokenTransferTimestamp]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("hour",TokenTransferTimestamp) &gt; 12 ? DATEPART("hour",TokenTransferTimestamp) - 12 : DATEPART("hour",TokenTransferTimestamp)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[AP]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output].Columns[AP]"
+                      name="AP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -858,17 +858,17 @@
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Data Conversion Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\DimTimestamp OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\Data Flow Task\Convert Month and Week day to String.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Derived Column Output]"
-              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\Data Flow Task\Convert Month and Week day to String.Inputs[Data Conversion Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Data Flow Task\Transfers OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -891,7 +891,7 @@
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="46.6666641169126,44.1999996926387" />
+          TopLeft="226.666654282147,61.5333329054382" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -901,27 +901,35 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Data Flow Task\Derived Column"
-          TopLeft="369.999979784092,64.1333328873581" />
+          Size="244,41.6"
+          Id="Package\Data Flow Task\DimTimestamp OLE DB Destination"
+          TopLeft="813.333288894761,163.799998860955" />
         <NodeLayout
           Size="199.2,41.6"
           Id="Package\Data Flow Task\Transfers OLE DB Source"
           TopLeft="77.4999957655869,64.1333328873581" />
+        <NodeLayout
+          Size="386.4,41.6"
+          Id="Package\Data Flow Task\Pass Timestamp to Date and split it into DimTimestamp's attributes"
+          TopLeft="369.999979784092,64.1333328873581" />
+        <NodeLayout
+          Size="256.8,41.6"
+          Id="Package\Data Flow Task\Convert Month and Week day to String"
+          TopLeft="807.499955880146,64.9999995479981" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="276.699995765587,84.9333328873581">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="93.2999840185053,0"
+              EndConnector="93.2999840185051,0"
               Start="0,0"
-              End="85.7999840185053,0">
+              End="85.7999840185051,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="85.7999840185053,0" />
+                    End="85.7999840185051,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -930,28 +938,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="564.16663584196,160.333332218395" />
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Data Flow Task\Data Conversion"
-          TopLeft="573.333302007782,63.2666662267181" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="522.799979784092,84.4999995570381">
+          TopLeft="756.399979784092,85.3666662176781">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="50.5333222236903,0"
+              EndConnector="51.0999760960544,0"
               Start="0,0"
-              End="43.0333222236903,0">
+              End="43.5999760960544,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="43.0333222236903,0" />
+                    End="43.5999760960544,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -962,18 +962,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="650.549968924871,104.866666226718">
+          TopLeft="935.616622387454,106.599999547998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.4666659916771"
+              EndConnector="0,57.1999993129567"
               Start="0,0"
-              End="0,47.9666659916771">
+              End="0,49.6999993129567">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.9666659916771" />
+                    End="0,49.6999993129567" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -986,15 +986,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Transfers OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Data Flow Task\DimTimestamp OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1003,6 +995,14 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Transfers OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

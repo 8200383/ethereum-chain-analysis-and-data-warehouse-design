@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{67D37DEE-A106-4552-94F1-6B579F654B89}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{98A09FA5-C7B5-4F3E-8E59-23EB12EF726A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,50 +58,50 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Derived Column"
+              refId="Package\Data Flow Task\Calculate Balance"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
+              name="Calculate Balance"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\Data Flow Task\Calculate Balance.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[PosBalance]"
+                      refId="Package\Data Flow Task\Calculate Balance.Inputs[Derived Column Input].Columns[PosBalance]"
                       cachedDataType="numeric"
                       cachedName="PosBalance"
                       cachedPrecision="38"
                       cachedScale="6"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PosBalance]" />
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[PosBalance]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[NegBalance]"
+                      refId="Package\Data Flow Task\Calculate Balance.Inputs[Derived Column Input].Columns[NegBalance]"
                       cachedDataType="numeric"
                       cachedName="NegBalance"
                       cachedPrecision="38"
                       cachedScale="6"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NegBalance]" />
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[NegBalance]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Data Flow Task\Calculate Balance.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Balance]"
+                      refId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Output].Columns[Balance]"
                       dataType="numeric"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Balance]"
+                      lineageId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Output].Columns[Balance]"
                       name="Balance"
                       precision="38"
                       scale="6"
@@ -111,7 +111,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PosBalance]} - #{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NegBalance]}</property>
+                          name="Expression">#{Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[PosBalance]} - #{Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[NegBalance]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -124,23 +124,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Data Flow Task\Calculate Balance.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -149,162 +149,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[FactWalletBlockSnapshot]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BlockKey]"
-                      cachedDataType="i4"
-                      cachedName="BlockKey"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BlockKey]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BlockKey]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WalletKey]"
-                      cachedDataType="i4"
-                      cachedName="WalletKey"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WalletKey]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[WalletKey]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionCount]"
-                      cachedDataType="i4"
-                      cachedName="TransactionCount"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCount]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionCount]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Balance]"
-                      cachedDataType="numeric"
-                      cachedName="Balance"
-                      cachedPrecision="38"
-                      cachedScale="6"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Balance]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Balance]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
-                      dataType="i4"
-                      name="SurrogateKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WalletKey]"
-                      dataType="i4"
-                      name="WalletKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BlockKey]"
-                      dataType="i4"
-                      name="BlockKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Balance]"
-                      dataType="numeric"
-                      name="Balance"
-                      precision="12"
-                      scale="6" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCount]"
-                      dataType="i4"
-                      name="TransactionCount" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\OLE DB Source"
+              refId="Package\Data Flow Task\FactTransaction OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="OLE DB Source"
+              name="FactTransaction OLE DB Source"
               usesDispositions="true"
               version="7">
               <properties>
@@ -362,7 +211,7 @@ ORDER BY ftu.WalletKey, ftu.BlockKey</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\FactTransaction OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -370,54 +219,54 @@ ORDER BY ftu.WalletKey, ftu.BlockKey</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BlockKey]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[BlockKey]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BlockKey]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BlockKey]"
+                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BlockKey]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[BlockKey]"
                       name="BlockKey"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[WalletKey]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[WalletKey]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WalletKey]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[WalletKey]"
+                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WalletKey]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[WalletKey]"
                       name="WalletKey"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionCount]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionCount]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionCount]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionCount]"
+                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionCount]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionCount]"
                       name="TransactionCount"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PosBalance]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[PosBalance]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PosBalance]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PosBalance]"
+                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PosBalance]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[PosBalance]"
                       name="PosBalance"
                       precision="38"
                       scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NegBalance]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[NegBalance]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NegBalance]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NegBalance]"
+                      externalMetadataColumnId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NegBalance]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[NegBalance]"
                       name="NegBalance"
                       precision="38"
                       scale="6"
@@ -426,25 +275,25 @@ ORDER BY ftu.WalletKey, ftu.BlockKey</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BlockKey]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BlockKey]"
                       dataType="i4"
                       name="BlockKey" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WalletKey]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WalletKey]"
                       dataType="i4"
                       name="WalletKey" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionCount]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionCount]"
                       dataType="i4"
                       name="TransactionCount" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PosBalance]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PosBalance]"
                       dataType="numeric"
                       name="PosBalance"
                       precision="38"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NegBalance]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NegBalance]"
                       dataType="numeric"
                       name="NegBalance"
                       precision="38"
@@ -452,49 +301,200 @@ ORDER BY ftu.WalletKey, ftu.BlockKey</property>
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WalletKey]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WalletKey]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WalletKey]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WalletKey]"
                       name="WalletKey" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BlockKey]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BlockKey]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BlockKey]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BlockKey]"
                       name="BlockKey" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionCount]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionCount]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionCount]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionCount]"
                       name="TransactionCount" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PosBalance]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PosBalance]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PosBalance]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PosBalance]"
                       name="PosBalance"
                       precision="38"
                       scale="6" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NegBalance]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NegBalance]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NegBalance]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NegBalance]"
                       name="NegBalance"
                       precision="38"
                       scale="6" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="FactWalletBlcok OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactWalletBlockSnapshot]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-R6I2EHN5\DIOGOPINTOSERVER.Ethereum_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BlockKey]"
+                      cachedDataType="i4"
+                      cachedName="BlockKey"
+                      externalMetadataColumnId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BlockKey]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[BlockKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WalletKey]"
+                      cachedDataType="i4"
+                      cachedName="WalletKey"
+                      externalMetadataColumnId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WalletKey]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[WalletKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionCount]"
+                      cachedDataType="i4"
+                      cachedName="TransactionCount"
+                      externalMetadataColumnId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCount]"
+                      lineageId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionCount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Balance]"
+                      cachedDataType="numeric"
+                      cachedName="Balance"
+                      cachedPrecision="38"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Balance]"
+                      lineageId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Output].Columns[Balance]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SurrogateKey]"
+                      dataType="i4"
+                      name="SurrogateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WalletKey]"
+                      dataType="i4"
+                      name="WalletKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BlockKey]"
+                      dataType="i4"
+                      name="BlockKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Balance]"
+                      dataType="numeric"
+                      name="Balance"
+                      precision="12"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionCount]"
+                      dataType="i4"
+                      name="TransactionCount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -506,14 +506,14 @@ ORDER BY ftu.WalletKey, ftu.BlockKey</property>
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Derived Column Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\FactWalletBlcok OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\Data Flow Task\Calculate Balance.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\Data Flow Task\Calculate Balance.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\Data Flow Task\FactTransaction OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -544,27 +544,31 @@ ORDER BY ftu.WalletKey, ftu.BlockKey</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="62.4999965851507,56.3333329415983" />
+          Size="248.8,41.6"
+          Id="Package\Data Flow Task\FactWalletBlcok OLE DB Destination"
+          TopLeft="538.333303920098,61.5333329054382" />
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Data Flow Task\Derived Column"
+          Size="229.6,41.6"
+          Id="Package\Data Flow Task\FactTransaction OLE DB Source"
+          TopLeft="20.8333321950502,58.9333329235182" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Data Flow Task\Calculate Balance"
           TopLeft="314.99998278916,58.9333329235183" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="214.499996585151,78.4333329325583">
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="477.39998278916,81.0333329144783">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="100.499986204009,0"
+              EndConnector="60.933321130938,0"
               Start="0,0"
-              End="92.9999862040089,0">
+              End="53.433321130938,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="92.9999862040089,0" />
+                    End="53.433321130938,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -573,24 +577,20 @@ ORDER BY ftu.WalletKey, ftu.BlockKey</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="538.333303920098,61.5333329054382" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="467.79998278916,81.0333329144782">
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="250.43333219505,79.7333329235183">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="70.5333211309386,0"
+              EndConnector="64.5666505941098,0"
               Start="0,0"
-              End="63.0333211309386,0">
+              End="57.0666505941098,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="63.0333211309386,0" />
+                    End="57.0666505941098,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -603,15 +603,7 @@ ORDER BY ftu.WalletKey, ftu.BlockKey</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Data Flow Task\FactWalletBlcok OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -620,6 +612,14 @@ ORDER BY ftu.WalletKey, ftu.BlockKey</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\FactTransaction OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
