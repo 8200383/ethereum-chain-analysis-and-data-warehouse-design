@@ -111,5 +111,19 @@ We don't have a proper list of queries we want to make, typically the manager ch
 ![BPMN](diagrams/BPMNDiagram.png)
 ## A6. DSA SSIS
 ![DSA](diagrams/DSA.png)
+## A7. DW SSIS (DimTimestamp)
+![DimTimestamp](diagrams/DimTimestampDW.png)
+## A8. DW SSIS (DimBlock)
+![DimBlock](diagrams/DimBlockDW.png)
+## A9. DW SSIS (DimToken)
+![DimToken](diagrams/DimTokenDW.png)
+## A10. DW SSIS (DimWallet)
+![DimWallet](diagrams/DimWalletDW.png)
+## A11. DW SSIS (FactTransaction)
+![FactTransaction](diagrams/FactTransactionDW.png)
+## A12. DW SSIS (FactTokenBlockSnapshot)
+![FactTokenBlockSnapshot](diagrams/FactTokenBlockSnapshotDW.png)
+## A13. DW SSIS (FactWalletBlockSnapshot)
+![FactWalletBlockSnapshot](diagrams/FactWalletBlockSnapshotDW.png)
 ## References
 The DIY Blockchain Data Warehouse, By Steven Wang — Aug 23, 2022 https://blog.luabase.com/diy-blockchain-data-warehouse
